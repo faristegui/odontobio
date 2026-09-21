@@ -1,344 +1,249 @@
-<!DOCTYPE html>
-<html lang="es" class="light">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OdontoBio | Consultas Virtuales</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome (Free) -->
+  <title>OdontoBio | Odontología científica integrativa</title>
+  <meta name="description" content="Consultas virtuales y presenciales de odontología científica integrativa y mínimamente invasiva. Dra. Verónica A. Dubois, Ph.D." />
+  <link rel="icon" href="img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-<style>
-  body {
-    font-family: 'Manrope', sans-serif;
-  }
-</style>
-
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#fdf6ec] text-[#6d4c41]">
+<body>
 
-  <!-- Navigation -->
-  <header class="fixed top-0 w-full bg-white border-b border-[#6d4c41]/10 z-50">
-    <nav class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center text-sm">
-      <div class="flex items-center">
-        <img src="img/logo.png" alt="OdontoBio Logo" class="h-14 w-auto">
-      </div>
-      <div class="space-x-6 hidden md:block">
-        <a href="#inicio" class="hover:text-[#f4a261]">Inicio</a>
-        <a href="#proceso" class="hover:text-[#f4a261]">Cómo funciona</a>
-        <a href="#contacto" class="hover:text-[#f4a261]">Consultas virtuales</a>
-        <a href="#sobre" class="hover:text-[#f4a261]">Sobre mi</a>
-      </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="stroke" viewBox="0 0 200 14" preserveAspectRatio="none">
+      <path d="M3 9C40 4 90 3 197 6M10 11c50 -1 110 -2 175 1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    </symbol>
+  </svg>
+
+  <!-- Navegación -->
+  <header class="site-header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="brand" aria-label="OdontoBio - Inicio">
+        <img src="img/logo.png" alt="OdontoBio" />
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#enfoque">Enfoque</a></li>
+              <li><a href="consultas.html">Consultas</a></li>
+        <li><a href="#sobre">Quién soy</a></li>
+        <li class="nav-cta"><a href="#contacto" class="btn btn-sm">Solicitar consulta</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="inicio" class="pt-36 pb-24 relative shadow-[0_7px_10px_rgba(0,0,0,0.09)]">
-    <div class="absolute inset-0">
-      <img src="img/odontobio.webp" alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-[#fdf6ec]/70"></div>
+  <main>
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="hand">Hola, soy Vero</p>
+          <p class="intro">Doctora en Odontología - Odontóloga. <br> Experta en microbiota oral e inmunidad</p>
+          <p class="intro-sub" style="font-size: 1.2rem;">Mi propósito es acompañarte a comprender tu salud bucal como parte de tu salud general, desde la ciencia y con el enfoque más integrativo y conservador posible.</p>
+          <span class="vline" aria-hidden="true"></span>
+          <h1>
+            Odontología científica <span class="underlined">integrativa<svg class="stroke"><use href="#stroke"/></svg></span><br>
+            + PNI clínica<br>
+            para entender lo que<br>
+            tu boca está manifestando
+          </h1>
+          <a href="#enfoque" class="btn">Ver cómo trabajo</a>
+        </div>
+        <div class="hero-media reveal delay-1">
+          <div class="arch">
+            <img src="img/hero.webp" alt="Dra. Verónica A. Dubois en su consultorio" />
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <!-- Pilares -->
+    <div class="pillars">
+      <div class="container pillars-inner">
+      </div>
     </div>
-    <div class="relative max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-light leading-tight text-[#6d4c41]">
-          <b>Odontología científica integrativa</b>
-        </h1>
-        <p class="mt-6 text-lg text-[#6d4c41]/80">
-          Un espacio que combina ciencia y enfoque integrativo para comprender la salud bucal y su relación con la salud sistémica general.
+
+    <!-- Enfoque -->
+    <section id="enfoque" class="section section-white">
+      <div class="container narrow">
+        <p class="hand center reveal">mi forma de trabajar</p>
+        <h2 class="reveal">¿Cuál es mi enfoque?</h2>
+        <p class="center reveal" style="font-size: 1.2rem;">
+          Abordo la salud desde una mirada integrativa y funcional, basada en la Psiconeuroinmunología Clínica (PNI), 
+          teniendo en cuenta la relación constante entre la salud bucal y el funcionamiento general del organismo. 
+          Busco comprender a la persona como un todo, considerando cómo interactúan sus diferentes sistemas 
+          y cómo esto puede repercutir en su bienestar.
         </p>
-        <a href="#contacto" class="inline-block mt-10 rounded-full bg-[#e07a5f] text-white px-8 py-3 text-md font-medium hover:bg-[#f4a261] transition">
-          Solicitar tu consulta aquí!
-        </a>
+
+        <ul class="systems reveal">
+          <li><i class="fa-solid fa-tooth"></i><h3>Boca + microbiota oral</h3></li>
+          <li><i class="fa-solid fa-brain"></i><h3>Sistema nervioso</h3></li>
+          <li><i class="fa-solid fa-shield-virus"></i><h3>Inmunidad</h3></li>
+          <li><i class="fa-solid fa-fire-flame-simple"></i><h3>Metabolismo</h3></li>
+          <li><i class="fa-solid fa-bacterium"></i><h3>sistema Digestivo</h3></li>
+          <li><i class="fa-solid fa-leaf"></i><h3>Medio ambiente</h3></li>
+        </ul>
+
+        <p class="band reveal">Y cómo los desequilibrios de esta red pueden expresarse en la boca — y desde la boca.</p>
+
+        <p class="center small reveal style="font-size: 1.2rem;">
+          La salud emerge de la interacción entre sistema nervioso, inmunidad, metabolismo, microbiota,
+          emociones y nuestro entorno. La cavidad oral participa activamente en esta red y puede influir
+          —o verse influenciada— por procesos inflamatorios o endócrinos locales o sistémicos.
+        </p>
+
+        <div class="center reveal">
+          <a href="#contacto" class="btn">Quiero empezar mi consulta</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Mirada integrativa -->
-  <section id="integrativa" class="py-20 bg-[#f2ede7]">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-medium text-[#6d4c41] text-center">Mi enfoque se basa en la odontología integrativa y mínimamente invasiva</h2>
-      <br>
-      <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-[#dbddd2]/50 flex items-start">
-      <p class="text-[#6d4c41]/80 text-center w-full">
-        Aquí relacionamos la boca con el resto del cuerpo y profundizamos en los cambios del equilibrio bucal que influyen en tu salud general.  
-      </p>
+    <!-- Red biológica -->
+    <section class="section section-sage">
+      <div class="container narrow">
+        <h2 class="reveal">Una red biológica interconectada</h2>
+        <p class="center reveal style="font-size: 1.2rem;">¿Cómo dialoga tu boca con el resto de tu organismo?<br>Este es el mapa desde el que trabajamos en cada consulta.</p>
+        <figure class="diagram reveal">
+          <img src="img/banner1.webp" alt="Diagrama de la red biológica interconectada: cavidad oral, sistema nervioso, sistema inmune, metabolismo, microbiota y entorno" />
+        </figure>
       </div>
-      <br>
-      <img src="img/banner1.webp" class="w-full h-full object-cover" >
-      <br>
-      <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-[#dbddd2]/50 flex items-start">
-      <p class="text-[#6d4c41]/80 text-center">
-        La salud emerge de la interacción entre sistema nervioso, inmunidad, metabolismo, microbiota, emociones y nuestro entorno. La cavidad oral participa activamente en esta red y puede influir —o verse influenciada— por procesos inflamatorios o endócrinos locales o sistémicos.
-      </p>
+    </section>
+
+    <!-- Ejes -->
+    <section id="ejes" class="section section-gray">
+      <div class="container">
+        <h2 class="reveal">Los 9 ejes de mi trabajo</h2>
+        <p class="sub reveal">que abordaremos juntas/os en las consultas integrativas</p>
+        <p class="band band-center reveal">Para lograr un verdadero cambio, comprender tu biología es el punto de partida</p>
+
+        <ul class="laws">
+          <li class="reveal"><span class="law-num">01</span><h3>Alimentación saludable</h3><p>Enfocada en tu salud bucal y general.</p></li>
+          <li class="reveal"><span class="law-num">02</span><h3>Dormir y respirar bien</h3><p>Indispensable para tu completo bienestar.</p></li>
+          <li class="reveal"><span class="law-num">09</span><h3>Cuidado de tu microbiota e inmunidad</h3><p>El éxito de tu salud bucal a largo plazo.</p></li>
+          <li class="reveal"><span class="law-num">03</span><h3>Hábitos funcionales</h3><p>Como tragas, respiras, tu postura, tus pies, etc: todo se relaciona con tu boca.</p></li>
+          <li class="reveal"><span class="law-num">04</span><h3>Estilo de vida saludable</h3><p>Indispensable para una boca en equilibrio.</p></li>
+          <li class="reveal"><span class="law-num">05</span><h3>Actividad física</h3><p>Como estilo de vida y hábito saludable.</p></li>
+          <li class="reveal"><span class="law-num">06</span><h3>Emociones y estrés</h3><p>Influyen directamente con tu salud bucal y general.</p></li>
+          <li class="reveal"><span class="law-num">07</span><h3>Conacto con la naturaleza y la luz solar</h3><p>Importante para un correcto funcionamiento de tu cuerpo.</p></li>
+          <li class="reveal"><span class="law-num">08</span><h3>Higiene bucal consciente e integrativa</h3><p>Necesitás aprender a limpiar tu boca de forma no agresiva.</p></li>
+          <li class="reveal"><span class="law-num">09</span><h3>Flexibilidad y paciencia</h3><p>Cuando la salud se perdió, volver al equilibrio demanda tiempo y compromiso.</p></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Consultas: ejes de trabajo -->
-  <section id="consultas" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-medium text-[#e07a5f] text-center">En las consultas trabajaremos sobre los siguientes ejes:</h2>
-      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Historia clínica -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-file-medical text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Revisión/confección de tu historia clínica con enfoque integrativo.
-          </p>
-        </div>
 
-        <!-- Estudios por imágenes -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-image text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Solicitud/interpretación de radiografías, tomografías y/o fotos de tu boca.
-          </p>
-        </div>
-
-        <!-- Laboratorio -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-vials text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Solicitud/evaluación de análisis clínicos de laboratorio.
-          </p>
-        </div>
-
-        <!-- Nutrición -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-leaf text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Valoración de tu nutrición y hábitos dietarios.
-          </p>
-        </div>
-
-        <!-- Factores sistémicos -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-bacterium text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Entender y equilibrar tu microbiota oral.
-          </p>
-        </div>
-
-        <!-- Decisiones terapéuticas -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-regular fa-face-smile text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Explorar la relación entre el estrés, tus emociones y tu salud bucal.
-          </p>
-        </div>
-
-          <!-- Odontología preventiva -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-tooth text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Identificación de infecciones crónicas o subdiagnosticadas y su impacto sistémico.
-          </p>
-        </div>
-
-        <!-- Educación en higiene oral -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-teeth text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Educación en higiene oral adaptada a cada caso.
-          </p>
-        </div>
-
-        <!-- Odontología preventiva -->
-        <div class="rounded-2xl border border-[#e07a5f]/20 p-6 bg-white flex items-start space-x-4">
-          <i class="fa-solid fa-clipboard-user text-[#f4a261] text-2xl"></i>
-          <p class="text-sm text-[#6d4c41]/80 text-center">
-            Elaboración de un plan de tratamiento personalizado según tus necesidades, con un enfoque conservador basado en la odontología más actual: la odontología mínimamente invasiva.
-          </p>
-        
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Proceso -->
-  <section id="proceso" class="bg-[#f6bd60]/10 py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-medium text-[#e07a5f]">¿Cómo funciona una consulta virtual?</h2>
-      <br>
-      <!--       <div class="mt-8 grid md:grid-cols-3 gap-6 text-[#6d4c41]/80">
-        <div class="rounded-2xl bg-white border border-[#e07a5f]/20 p-6">1. Completar el formulario de contacto</div>
-        <div class="rounded-2xl bg-white border border-[#e07a5f]/20 p-6">2. Revisión del caso</div>
-        <div class="rounded-2xl bg-white border border-[#e07a5f]/20 p-6">3. Contacto para agendar el turno</div>
-        <div class="rounded-2xl bg-white border border-[#e07a5f]/20 p-6">4. Consulta virtual</div>
-      </div>
-    </div>
--->
-
-      <div class="relative max-w-6xl mx-auto px-6">
-
-        <!-- Línea solo en desktop -->
-        <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-[#3e2015]/20"></div>
-
-        <!-- Pasos -->
-        <div class="relative grid grid-cols-1 md:grid-cols-4 gap-6">
-
-          <div class="bg-white border border-[#3e2015]/15 rounded-2xl p-6 text-center shadow-sm">
-            <div class="mx-auto w-10 h-10 rounded-full bg-[#3e2015]/10 flex items-center justify-center text-sm font-medium">
-              1
+    <!-- Contacto -->
+    <section id="contacto" class="section section-white offers">
+      <div class="container">
+        <p class="sub center reveal">Si este enfoque resuena con vos, podés comunicarte para una consulta virtual o presencial.</p>
+        <div class="offer-grid">
+          <div class="offer reveal">
+            <img src="img/consultas.webp" alt="" />
+            <div class="offer-body">
+              <span>Consulta</span>
+              <h3>"Virtual"</h3>
+              <a href="https://forms.gle/oZZpiGkRWBUprfyB9" target="_blank" rel="noopener" class="btn btn-outline">Completar formulario</a>
+              <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta%20virtual" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Escribir por WhatsApp</a>
             </div>
-            <p class="mt-4 text-md font-medium">Completar formulario</p>
-            <p class="mt-2 text-xs text-[#3e2015]/70">
-            </p>
           </div>
-
-          <div class="bg-white border border-[#3e2015]/15 rounded-2xl p-6 text-center shadow-sm">
-            <div class="mx-auto w-10 h-10 rounded-full bg-[#3e2015]/10 flex items-center justify-center text-sm font-medium">
-              2
+          <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta%20presencial" target="_blank" rel="noopener" class="offer reveal delay-1">
+            <img src="img/odontobio.webp" alt="" />
+            <div class="offer-body">
+              <span>Consulta</span>
+              <h3>"Presencial"</h3>
+              <em class="btn btn-outline"><i class="fab fa-whatsapp"></i> Escribir por WhatsApp</em>
             </div>
-            <p class="mt-4 text-md font-medium">Revisión del caso</p>
-            <p class="mt-2 text-xs text-[#3e2015]/70">
-            </p>
-          </div>
-
-          <div class="bg-white border border-[#3e2015]/15 rounded-2xl p-6 text-center shadow-sm">
-            <div class="mx-auto w-10 h-10 rounded-full bg-[#3e2015]/10 flex items-center justify-center text-sm font-medium">
-              3
-            </div>
-            <p class="mt-4 text-md font-medium">Confirmación y pago</p>
-            <p class="mt-2 text-xs text-[#3e2015]/70">
-            </p>
-          </div>
-
-          <div class="bg-white border border-[#3e2015]/15 rounded-2xl p-6 text-center shadow-sm">
-            <div class="mx-auto w-10 h-10 rounded-full bg-[#3e2015]/10 flex items-center justify-center text-sm font-medium">
-              4
-            </div>
-            <p class="mt-4 text-md font-medium">Consulta virtual</p>
-            <p class="mt-2 text-xs text-[#3e2015]/70">
-            </p>
-          </div>
-
+          </a>
         </div>
       </div>
+    </section>
 
-    
-  </section>
+    <!-- Sobre mí -->
+    <section id="sobre" class="section section-greige about">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <img src="img/lab.webp" alt="Dra. Verónica A. Dubois en el laboratorio" />
+        </div>
+        <div class="about-text reveal delay-1">
+          <p class="hand">Quién soy</p>
+          <h2 class="left">Dra. Verónica A. Dubois, Ph.D.</h2>
+          <span class="vline" aria-hidden="true"></span>
+          <p>
+            Me especializo en la relación existente entre la salud bucal, su conexión con la salud general
+            y enfermedades sistémicas de todo tipo.
+          </p>
+          <p>
+            Mi enfoque es reflexivo, basado en evidencia científica y orientado a comprender la biología
+            funcional más allá del síntoma puntual. Brindo toda la atención odontológica aplicando los
+            principios de la odontología moderna y conservadora, especialmente la odontología integrativa y mínimamente
+            invasiva, cuyo objetivo es ser biocompatible preservando al máximo los dientes y las encías naturales.
+          </p>
 
-  <!-- CTA -->
-<section 
-  id="contacto" 
-  class="relative py-24 bg-[url('img/consultas.webp')] bg-cover bg-center bg-no-repeat"
->
-  <!-- Overlay blanco que ocupa todo el alto -->
-  <div class="absolute inset-0 bg-white/80"></div>
-
-  <!-- Contenido encima del overlay -->
-  <div class="relative max-w-4xl mx-auto px-6 text-center p-18">
-    <h2 class="text-3xl font-light text-[#6d4c41]">Solicitar tu consulta</h2>
-    <p class="mt-4 text-[#6d4c41]/80">
-      Si este enfoque resuena con vos, podés comunicarte para consulta virtual o presencial.
-    </p>
-    
-    <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-      <!-- Botón Consulta Virtual -->
-      <div class="flex flex-col items-center">
-  
-        <a href="https://forms.gle/oZZpiGkRWBUprfyB9" target="_blank" class="inline-block rounded-full bg-[#e07a5f] text-white px-10 py-3 text-sm font-medium hover:bg-[#f4a261] transition">
-          Ir al formulario
-        </a>
+          <h3 class="creds-title">Formación profesional</h3>
+          <ul class="creds">
+            <li>Ph.D. Doctora en Odontología. Área de especialización: Microbiología Molecular y Microbiota Oral – FOUBA</li>
+            <li>Odontóloga – UNC</li>
+            <li>Experta en microbiota oral e inmunidad – Argentina · España</li>
+            <li>Posgraduada en Psiconeuroinmunología Clínica (PNI) – España</li>
+            <li>Diplomada en Investigación Clínica – UNAJ</li>
+            <li>Posgraduada en Ortodoncia y Ortopedia Maxilar Funcional– UCC, COC, SAO, AAOFM</li>
+            <li>Posgraduada en Endodoncia – IPO CBA - ArgEndo Rosario</li>
+            <li>Odontóloga científica integrativa</li>
+            <li>Educación y prevención en salud integrativa y su relación con enfermedades sistémicas</li>
+            <li>Investigadora y asesora científica en Micorbiología, Biología Molecular, Microbiota e inmunidad</li>
+            <li>Ex Profesora regular, Cátedra de Microbiología e Inmunología – FOUBA</li>
+            <li>Ex Profesora, Materia: Biología Molecular y Celular. Carrera de Bioingeniería – ITBA</li>
+          </ul>
+        </div>
       </div>
-      
-      <!-- Botón Consulta Presencial (WhatsApp) -->
-      <div class="flex flex-col items-center">
-        
-        <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta%20presencial" target="_blank" class="inline-block rounded-full bg-[#25d366] text-white px-10 py-3 text-sm font-medium hover:bg-[#20ba5a] transition flex items-center gap-2">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section-white closing">
+      <div class="container narrow reveal">
+        <p class="closing-serif">Cuando ya no encuentras <span class="underlined">respuestas<svg class="stroke"><use href="#stroke"/></svg></span></p>
+        <span class="vline" aria-hidden="true"></span>
+        <h2>Es momento de mirar más allá de tu boca</h2>
       </div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- Sobre la profesional (al final) -->
-<section id="sobre" class="bg-[#f6bd60]/10 py-20">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-[70%_30%] gap-12 items-center">
-    <!-- Columna izquierda: texto completo -->
-    <div class="p-3">
-      <h2 class="text-2xl font-medium text-[#e07a5f]">Sobre mi</h2>
-      <p class="mt-4 text-[#6d4c41]/80">
-        Soy <strong>Verónica A. Dubois. </strong> Me especializo en la relación existente entre la salud bucal, su conexión con la salud general y enfermedades sistémicas.
-      </p>
-      <p class="mt-4 text-[#6d4c41]/80">
-        Mi enfoque es reflexivo, basado en evidencia científica y orientado a comprender la biología funcional más allá del síntoma puntual. Brindo toda la atención odontológica aplicando los principios de la odontología moderna y conservadora, especialmente la odontología mínimamente invasiva, cuyo objetivo es preservar al máximo los dientes y las encías naturales mediante tratamientos lo más conservadores posibles.
-      </p>
-
-      <ul class="mt-6 space-y-4 text-[#6d4c41]/80">
-        <strong>Formación profesional</strong>
-        <li>• Ph.D: Doctora en Odontología. Área de especialización: Microbiología Molecular y Microbiota Oral- FOUBA</li>
-        <li>• Odontóloga UNC</li>
-        <li>• Odontolóloga Científica Integrativa con enfoque en Odontología Mínimamente Invasiva</li>
-        <li>• Experta en microbiota oral e inmunidad - Argentina . España</li>
-        <li>• Posgraduada en psiconeuroinmunología clínica (PNI) - España</li>
-        <li>• Diplomada en investigación clínica - UNAJ</li>
-        <li>• Posgraduada en Ortodoncia y ortopedia maxilar - UCC, COC, SAO, AAOFM</li>
-        <li>• Posgraduada en Endodoncia - IPO CBA</li>
-        <li>• Educación + prevención en salud integral y su relación con enfermedades sistémicas</li>
-        <li>• Investigadora y asesora científica</li>
-        <li>• Ex Profesora regular Cátedra de Microbiología e inmunología - FOUBA</li>
-      </ul>
-    </div>
-
-    <!-- Columna derecha: foto + redes sociales -->
-    <div class="flex flex-col items-center">
-      <img 
-        src="img/foto.webp"
-        alt="Foto de Verónica A. Dubois" 
-        class="w-full h-auto rounded-2xl shadow-lg border border-[#e07a5f]/20"
-      />
-
-      <!-- Íconos de redes sociales -->
-      <div class="flex space-x-6 mt-6 text-[#6d4c41] text-4xl">
-        <a href="https://www.instagram.com/bioo.odontologia/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://ar.linkedin.com/in/veronicadubois" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://odontobio.substack.com/" target="_blank" class="inline-flex items-center hover:opacity-80 transition text-[#171717]">
-
-          
-          <svg viewBox="0 0 100 180" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12">
-  <!-- Banderín inferior más arriba -->
-  <polygon points="0,150 0,70 100,70 100,150 50,110" fill="#6d4c41"/>
-  
-  <!-- Barras superiores (solo dos) -->
-  <rect x="0" y="10" width="100" height="20" fill="#6d4c41"/>
-  <rect x="0" y="40" width="100" height="20" fill="#6d4c41"/>
-</svg>
-
-
-
-</a>
-
-
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="py-10 text-center text-sm text-[#6d4c41]/60">
-    © OdontoBio · Dra. Od. Verónica A. Dubois, Ph.D.
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="img/logo.png" alt="OdontoBio" class="footer-logo" />
+        <p class="footer-serif">Si querés seguir aprendiendo o abordando tu salud bucal e integrativa,<br>me encantaría que sigamos en contacto</p>
+        <span class="vline" aria-hidden="true"></span>
+    
+      </div>
+      <div class="footer-side">
+        <div class="socials">
+          <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/bioo.odontologia/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://ar.linkedin.com/in/veronicadubois" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://odontobio.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22 3H2v2.5h20V3zm0 4.8H2v2.5h20V7.8zM2 12.6V21l10-5.6L22 21v-8.4H2z"/></svg>
+          </a>
+        </div>
+        <p class="copy">© <span id="year"></span> OdontoBio · Dra. Od. Verónica A. Dubois</p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta" target="_blank" class="fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full bg-[#25d366] text-white shadow-lg hover:bg-[#20ba5a] transition flex items-center justify-center hover:scale-110 transform duration-200">
-    <i class="fab fa-whatsapp text-3xl"></i>
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/542236662804?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20consulta" target="_blank" rel="noopener" class="wa-float" aria-label="Escribir por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
-
-
