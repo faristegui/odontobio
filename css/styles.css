@@ -342,6 +342,11 @@ h3 {
   .ring-text { display: none; }
 }
 @media (max-width: 860px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-side { align-items: flex-start; }
+  .copy { text-align: left; }
+  .footer-serif br { display: none; }
+
   .nav-toggle { display: flex; position: static; transform: none; }
   .nav-links {
     position: absolute; left: 0; right: 0; top: 100%;
