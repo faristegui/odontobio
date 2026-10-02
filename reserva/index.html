@@ -1,0 +1,2889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+
+  <title>Solicitar turno | Odontología</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: "#FCFAF7",
+
+            sage: {
+              50: "#F3F8F5",
+              100: "#E6F0EA",
+              200: "#D4E5DA",
+              300: "#B9D4C2",
+              400: "#9DBEAA",
+              500: "#7FA58D",
+              600: "#688D76",
+            },
+
+            blush: {
+              50: "#FFF8F8",
+              100: "#FBEAEA",
+              200: "#F5DADA",
+              300: "#E9BFC2",
+              500: "#C99095",
+            },
+
+            lavender: {
+              50: "#FAF9FD",
+              100: "#F0EDF8",
+              200: "#E3DDF1",
+              300: "#CFC5E8",
+              500: "#8B80AA",
+            },
+
+            peach: {
+              50: "#FFF9F3",
+              100: "#FBEBDD",
+              200: "#F5D7C0",
+              500: "#C99572",
+            },
+
+            text: {
+              main: "#3E3A3A",
+              soft: "#706A6A",
+              muted: "#979090",
+            }
+          },
+
+          boxShadow: {
+            soft: "0 8px 30px rgba(70, 60, 60, 0.07)",
+            card: "0 4px 18px rgba(70, 60, 60, 0.05)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      background: #fcfaf7;
+      color: #3e3a3a;
+    }
+
+    .option-card {
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .option-card:active {
+      transform: scale(0.99);
+    }
+
+    .option-card.selected {
+      border-color: #9dbeaa;
+      background: #f3f8f5;
+      box-shadow:
+        0 8px 25px rgba(100, 130, 110, 0.09);
+    }
+
+    .radio {
+      transition: all 0.2s ease;
+    }
+
+    .option-card.selected .radio {
+      border-color: #7fa58d;
+      background: #7fa58d;
+      box-shadow:
+        inset 0 0 0 4px #f3f8f5;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+    }
+
+    .required::after {
+      content: " *";
+      color: #c99095;
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23706A6A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 17px;
+    }
+  </style>
+</head>
+
+
+<body class="min-h-screen bg-cream">
+
+  <main class="w-full max-w-xl mx-auto px-5 py-7 sm:py-10">
+
+    <!-- HEADER -->
+
+    <header class="text-center mb-8">
+
+      <div
+        class="mx-auto mb-5 w-16 h-16 rounded-[22px]
+               bg-sage-100 flex items-center justify-center"
+      >
+
+        <svg
+          width="31"
+          height="31"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#688D76"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M9 4.5C7.5 3 5 3.5 4 5.5c-1.5 3 0 7 1.5 9.5C6.5 17 7.5 21 10 21c1.5 0 2-2 2-4 0 2 .5 4 2 4 2.5 0 3.5-4 4.5-6 1.5-2.5 3-6.5 1.5-9.5-1-2-3.5-2.5-5-1L12 6 9 4.5Z"
+          />
+        </svg>
+
+      </div>
+
+      <p class="text-sm font-medium text-text-soft mb-2">
+        Solicitud de turno
+      </p>
+
+      <h1
+        class="text-[27px] leading-tight
+               font-semibold tracking-tight"
+      >
+        Coordinemos tu consulta
+      </h1>
+
+      <p
+        class="mt-3 text-[15px] leading-6
+               text-text-soft max-w-md mx-auto"
+      >
+        Completá los datos y elegí la modalidad
+        que preferís para tu consulta.
+      </p>
+
+    </header>
+
+
+    <!-- PROGRESO -->
+
+    <div class="flex items-center gap-2 mb-8">
+
+      <div
+        id="progress-1"
+        class="h-1.5 flex-1 rounded-full
+               bg-sage-300 transition-all"
+      ></div>
+
+      <div
+        id="progress-2"
+        class="h-1.5 flex-1 rounded-full
+               bg-gray-200 transition-all"
+      ></div>
+
+      <div
+        id="progress-3"
+        class="h-1.5 flex-1 rounded-full
+               bg-gray-200 transition-all"
+      ></div>
+
+    </div>
+
+
+    <!-- ======================================================
+         PASO 1
+    ======================================================= -->
+
+    <section id="step-1">
+
+      <div class="mb-5">
+
+        <span
+          class="text-[11px] font-bold uppercase
+                 tracking-[0.16em] text-text-muted"
+        >
+          Paso 1 de 3
+        </span>
+
+        <h2 class="text-xl font-semibold mt-1">
+          ¿Cómo querés realizar tu consulta?
+        </h2>
+
+        <p
+          class="text-sm text-text-soft mt-2 leading-5"
+        >
+          Elegí entre una consulta virtual o presencial.
+        </p>
+
+      </div>
+
+
+      <!-- VIRTUAL -->
+
+      <button
+        type="button"
+        id="option-virtual"
+        onclick="selectModality('virtual')"
+        class="option-card w-full text-left
+               bg-white border border-gray-200
+               rounded-2xl p-5 shadow-card mb-3"
+      >
+
+        <div class="flex items-start gap-4">
+
+          <div
+            id="radio-virtual"
+            class="radio mt-1 w-5 h-5 rounded-full
+                   border-2 border-gray-300 shrink-0"
+          ></div>
+
+          <div class="flex-1">
+
+            <div
+              class="flex items-start
+                     justify-between gap-3"
+            >
+
+              <div>
+
+                <h3 class="font-semibold text-[16px]">
+                  Consulta virtual
+                </h3>
+
+                <p
+                  class="text-sm text-text-soft
+                         mt-1.5 leading-5"
+                >
+                  Atención mediante videollamada.
+                </p>
+
+              </div>
+
+              <div
+                class="w-10 h-10 rounded-xl
+                       bg-lavender-100
+                       flex items-center
+                       justify-center shrink-0"
+              >
+                <span class="text-lg">
+                  💻
+                </span>
+              </div>
+
+            </div>
+
+            <div class="flex flex-wrap gap-2 mt-4">
+            </div>
+
+          </div>
+
+        </div>
+
+      </button>
+
+
+      <!-- PRESENCIAL -->
+
+      <button
+        type="button"
+        id="option-presencial"
+        onclick="selectModality('presencial')"
+        class="option-card w-full text-left
+               bg-white border border-gray-200
+               rounded-2xl p-5 shadow-card"
+      >
+
+        <div class="flex items-start gap-4">
+
+          <div
+            id="radio-presencial"
+            class="radio mt-1 w-5 h-5 rounded-full
+                   border-2 border-gray-300 shrink-0"
+          ></div>
+
+          <div class="flex-1">
+
+            <div
+              class="flex items-start
+                     justify-between gap-3"
+            >
+
+              <div>
+
+                <h3 class="font-semibold text-[16px]">
+                  Consulta presencial
+                </h3>
+
+                <p
+                  class="text-sm text-text-soft
+                         mt-1.5 leading-5"
+                >
+                  Atención en el consultorio.
+                </p>
+
+              </div>
+
+              <div
+                class="w-10 h-10 rounded-xl
+                       bg-blush-100
+                       flex items-center
+                       justify-center shrink-0"
+              >
+                <span class="text-lg">
+                  🦷
+                </span>
+              </div>
+
+            </div>
+
+            <div class="mt-4">
+
+              <span
+                class="inline-flex items-center
+                       px-2.5 py-1 rounded-full
+                       bg-blush-50
+                       text-xs text-text-soft"
+              >
+                Elegí el tipo de consulta
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </button>
+
+
+      <!-- INFO VIRTUAL -->
+
+      <div
+        id="virtual-info"
+        class="hidden mt-5 rounded-2xl
+               bg-lavender-50
+               border border-lavender-200
+               p-5 fade-in"
+      >
+
+        <div class="flex items-start gap-3">
+
+          <div
+            class="w-9 h-9 rounded-xl bg-white
+                   flex items-center
+                   justify-center shrink-0"
+          >
+            💳
+          </div>
+
+          <div>
+
+            <h3 class="font-semibold text-sm">
+              Consulta virtual
+            </h3>
+
+            <p
+              class="mt-2 text-sm text-text-soft
+                     leading-6"
+            >
+              El valor de la consulta virtual es de
+              <strong class="text-text-main">
+                $35.000
+              </strong>.
+            </p>
+
+            <div
+              class="mt-3 p-3.5 rounded-xl
+                     bg-white
+                     border border-lavender-200"
+            >
+
+              <p
+                class="text-sm text-text-soft
+                       leading-5"
+              >
+                Para reservar el turno se debe abonar
+                <strong class="text-text-main">
+                  la totalidad de $35.000
+                </strong>
+                al momento de la reserva.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- INFO PRESENCIAL -->
+
+      <div
+        id="presencial-info"
+        class="hidden mt-5 fade-in"
+      >
+
+        <div class="mb-4">
+
+          <h3 class="font-semibold text-base">
+            Elegí el tipo de consulta
+          </h3>
+
+          <p
+            class="text-sm text-text-soft mt-1"
+          >
+            Seleccioná la evaluación que querés realizar.
+          </p>
+
+        </div>
+
+
+        <!-- INTEGRATIVA -->
+
+        <button
+          type="button"
+          id="option-integrative"
+          onclick="selectConsultation('integrative')"
+          class="option-card w-full text-left
+                 bg-white border border-gray-200
+                 rounded-2xl p-5 shadow-card mb-3"
+        >
+
+          <div class="flex items-start gap-4">
+
+            <div
+              id="radio-integrative"
+              class="radio mt-1 w-5 h-5 rounded-full
+                     border-2 border-gray-300 shrink-0"
+            ></div>
+
+            <div class="flex-1">
+
+              <h3 class="font-semibold text-[16px]">
+                🦷🌱 Consulta Odontológica Integrativa
+              </h3>
+
+              <p
+                class="text-sm text-text-soft
+                       mt-1.5 leading-5"
+              >
+                Evaluamos tu salud bucal y la conexión que existe con toda tu
+                salud sistémica general.
+              </p>
+
+              <div
+                class="flex flex-wrap gap-2 mt-4"
+              >
+
+                <span
+                  class="px-2.5 py-1 rounded-full
+                         bg-gray-50
+                         text-xs text-text-soft"
+                >
+                  ⏱ 1 hora
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- NO INTEGRATIVA -->
+
+        <button
+          type="button"
+          id="option-no-integrative"
+          onclick="selectConsultation('no-integrative')"
+          class="option-card w-full text-left
+                 bg-white border border-gray-200
+                 rounded-2xl p-5 shadow-card"
+        >
+
+          <div class="flex items-start gap-4">
+
+            <div
+              id="radio-no-integrative"
+              class="radio mt-1 w-5 h-5 rounded-full
+                     border-2 border-gray-300 shrink-0"
+            ></div>
+
+            <div class="flex-1">
+
+              <h3 class="font-semibold text-[16px]">
+                🦷 Consulta Odontológica NO integrativa
+              </h3>
+
+              <p
+                class="text-sm text-text-soft
+                       mt-1.5 leading-5"
+              >
+                En ella evaluamos únicamente
+                tu salud bucal.
+              </p>
+
+              <div
+                class="flex flex-wrap gap-2 mt-4"
+              >
+
+                <span
+                  class="px-2.5 py-1 rounded-full
+                         bg-gray-50
+                         text-xs text-text-soft"
+                >
+                  ⏱ 15 minutos
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- DETALLE CONSULTA -->
+
+        <div
+          id="consultation-detail"
+          class="hidden mt-4 bg-white
+                 border border-gray-100
+                 rounded-2xl p-5
+                 shadow-card fade-in"
+        ></div>
+
+
+        <!-- PAGO -->
+
+        <div
+          id="presencial-payment"
+          class="hidden mt-4 rounded-2xl
+                 bg-peach-50
+                 border border-peach-200
+                 p-5 fade-in"
+        >
+
+          <div class="flex items-start gap-3">
+
+            <div
+              class="w-9 h-9 rounded-xl
+                     bg-white
+                     flex items-center
+                     justify-center shrink-0"
+            >
+              💳
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Información importante
+              </h3>
+
+              <div
+                id="presencial-payment-content"
+                class="mt-2 text-sm
+                       text-text-soft
+                       leading-6"
+              ></div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="mt-5 pt-4
+                   border-t border-peach-200"
+          >
+
+            <div class="flex items-start gap-3">
+
+              <span class="text-base">
+                ⚠️
+              </span>
+
+              <p
+                class="text-xs text-text-soft
+                       leading-5"
+              >
+                En caso de cancelación o reprogramación
+                de turno con menos de
+                <strong class="text-text-main">
+                  24 horas
+                </strong>
+                de anticipación, el importe abonado
+                para confirmar el turno
+                <strong class="text-text-main">
+                  no es reintegrable
+                </strong>.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTINUAR -->
+
+      <button
+        id="continue-step-1"
+        type="button"
+        onclick="goToStep2()"
+        disabled
+        class="w-full mt-5 py-4 rounded-2xl
+               bg-gray-200 text-gray-400
+               font-semibold text-sm
+               cursor-not-allowed transition"
+      >
+        Continuar
+      </button>
+
+    </section>
+
+
+    <!-- ======================================================
+         PASO 2
+    ======================================================= -->
+
+    <section
+      id="step-2"
+      class="hidden fade-in"
+    >
+
+      <div class="mb-6">
+
+        <span
+          class="text-[11px] font-bold uppercase
+                 tracking-[0.16em] text-text-muted"
+        >
+          Paso 2 de 3
+        </span>
+
+        <h2 class="text-xl font-semibold mt-1">
+          Tus datos
+        </h2>
+
+        <p
+          class="text-sm text-text-soft
+                 mt-2 leading-5"
+        >
+          Completá tus datos y elegí el horario
+          que preferís.
+        </p>
+
+      </div>
+
+
+      <!-- DATOS -->
+
+      <div
+        class="bg-white rounded-2xl p-5
+               border border-gray-100
+               shadow-card"
+      >
+
+        <div class="mb-5">
+
+          <label
+            for="nombre"
+            class="required block text-sm
+                   font-medium mb-2"
+          >
+            Nombre y apellido
+          </label>
+
+          <input
+            id="nombre"
+            type="text"
+            required
+            placeholder="Ej. María González"
+            class="w-full px-4 py-3.5
+                   rounded-xl
+                   border border-gray-200
+                   bg-white text-sm
+                   transition
+                   focus:border-sage-400
+                   focus:ring-4
+                   focus:ring-sage-100"
+          />
+
+        </div>
+
+
+        <div>
+
+          <label
+            for="telefono"
+            class="required block text-sm
+                   font-medium mb-2"
+          >
+            Número de WhatsApp
+          </label>
+
+          <input
+            id="telefono"
+            type="tel"
+            required
+            placeholder="Ej. 223 555 1234"
+            class="w-full px-4 py-3.5
+                   rounded-xl
+                   border border-gray-200
+                   bg-white text-sm
+                   transition
+                   focus:border-sage-400
+                   focus:ring-4
+                   focus:ring-sage-100"
+          />
+
+        </div>
+
+      </div>
+
+
+      <!-- ====================================================
+           HORARIO PRESENCIAL
+      ===================================================== -->
+
+      <div
+        id="schedule-section"
+        class="hidden bg-white rounded-2xl p-5
+               border border-gray-100
+               shadow-card mt-5"
+      >
+
+        <div class="mb-5">
+
+          <div class="flex items-center gap-3">
+
+            <div
+              class="w-9 h-9 rounded-xl
+                     bg-sage-100
+                     flex items-center
+                     justify-center"
+            >
+              📅
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Horarios de atención
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             DÍA — MARTES AUTOMÁTICOS
+        =================================================== -->
+
+        <div
+          class="rounded-xl
+                 bg-sage-50
+                 border border-sage-200
+                 p-4 mb-5"
+        >
+
+          <div class="flex items-center gap-3">
+
+            <span class="text-lg">
+              📆
+            </span>
+
+            <div class="flex-1">
+
+              <p
+                class="text-xs text-text-muted mb-1"
+              >
+                Día de atención
+              </p>
+
+              <!--<select
+                id="fecha"
+                required
+                onchange="updateSummary()"
+                class="w-full px-3 py-2.5
+                       rounded-xl
+                       border border-sage-200
+                       bg-white text-sm
+                       font-medium
+                       focus:border-sage-400
+                       focus:ring-4
+                       focus:ring-sage-100"
+              >
+
+                <option value="">
+                  Seleccioná un día
+                </option>
+
+              </select>-->
+
+              <select
+                id="fecha"
+                required
+                onchange="updateSummary()"
+                class="w-full px-3 py-2.5
+                       rounded-xl
+                       border border-sage-200
+                       bg-white text-sm
+                       font-medium
+                       focus:border-sage-400
+                       focus:ring-4
+                       focus:ring-sage-100"
+              >
+
+                <option value="">
+                  Seleccioná un día
+                </option>
+                <option value="Martes 6 de Octubre">
+                  Martes 6 de Octubre
+                </option>
+                <option value="Martes 20 de Octubre">
+                  Martes 20 de Octubre
+                </option>
+                <option value="Jueves 22 de Octubre">
+                  Jueves 22 de Octubre
+                </option>
+                <option value="Martes 27 de Octubre">
+                  Martes 27 de Octubre
+                </option>
+                <option value="Jueves 29 de Octubre">
+                  Jueves 29 de Octubre
+                </option>
+
+              </select>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             HORARIO — NO SE MODIFICA
+        =================================================== -->
+
+        <div>
+
+          <label
+            for="hora"
+            class="required block text-sm
+                   font-medium mb-2"
+          >
+            Elegí el horario
+          </label>
+
+          <select
+            id="hora"
+            required
+            onchange="validateForm()"
+            class="w-full px-4 py-3.5
+                   rounded-xl
+                   border border-gray-200
+                   bg-white text-sm
+                   transition
+                   focus:border-sage-400
+                   focus:ring-4
+                   focus:ring-sage-100"
+          >
+
+            <option value="">
+              Seleccioná una franja horaria
+            </option>
+
+            <option value="Mañana — 08:30 a 12:30">
+              Mañana — 08:30 a 12:30
+            </option>
+
+            <option value="Tarde — 12:30 a 15:30">
+              Tarde — 12:30 a 15:30
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- INFORMACIÓN VIRTUAL -->
+
+      <div
+        id="virtual-schedule-info"
+        class="hidden mt-5 rounded-2xl
+               bg-lavender-50
+               border border-lavender-200
+               p-5"
+      >
+
+        <div class="flex items-start gap-3">
+
+          <div
+            class="w-9 h-9 rounded-xl bg-white
+                   flex items-center
+                   justify-center shrink-0"
+          >
+            💻
+          </div>
+
+          <div>
+
+            <h3 class="font-semibold text-sm">
+              Consulta virtual
+            </h3>
+
+            <p
+              class="mt-2 text-sm
+                     text-text-soft
+                     leading-6"
+            >
+              Una vez realizada la reserva,
+              se coordinará la consulta virtual
+              y se enviarán los datos necesarios
+              para la videollamada.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOTIVO -->
+
+      <div
+        class="bg-white rounded-2xl p-5
+               border border-gray-100
+               shadow-card mt-5"
+      >
+
+        <label
+          for="motivo"
+          class="required block text-sm
+                 font-medium mb-2"
+        >
+          ¿Cuál es el motivo principal de tu consulta?
+        </label>
+
+        <p
+          class="text-xs text-text-muted mb-3"
+        >
+          Contanos brevemente qué te gustaría consultar.
+        </p>
+
+        <textarea
+          id="motivo"
+          rows="5"
+          required
+          placeholder="Escribí tu respuesta..."
+          class="w-full px-4 py-3.5
+                 rounded-xl
+                 border border-gray-200
+                 bg-white text-sm
+                 resize-none transition
+                 focus:border-sage-400
+                 focus:ring-4
+                 focus:ring-sage-100"
+        ></textarea>
+
+      </div>
+
+
+      <!-- ====================================================
+           UBICACIÓN
+      ===================================================== -->
+
+      <div
+        id="location-section"
+        class="hidden mt-5 bg-white
+               rounded-2xl
+               border border-gray-100
+               shadow-card overflow-hidden"
+      >
+
+        <div class="p-5">
+
+          <div class="flex items-center gap-3">
+
+            <div
+              class="w-9 h-9 rounded-xl
+                     bg-blush-100
+                     flex items-center
+                     justify-center"
+            >
+              📍
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Ubicación
+              </h3>
+
+              <p
+                class="text-xs text-text-muted
+                       mt-0.5"
+              >
+                Consultá la ubicación del consultorio.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <img
+          src="mapa.png"
+          alt="Mapa de ubicación del consultorio"
+          class="w-full h-auto block"
+        />
+
+      </div>
+
+
+      <!-- ====================================================
+           RESUMEN
+      ===================================================== -->
+
+      <div
+        class="mt-5 rounded-2xl
+               bg-sage-50
+               border border-sage-200
+               p-5"
+      >
+
+        <div
+          class="flex items-center gap-3 mb-4"
+        >
+
+          <div
+            class="w-9 h-9 rounded-xl
+                   bg-white
+                   flex items-center justify-center"
+          >
+            📋
+          </div>
+
+          <div>
+
+            <h3 class="font-semibold text-sm">
+              Resumen de tu solicitud
+            </h3>
+
+            <p
+              class="text-xs text-text-muted"
+            >
+              Revisá que la información sea correcta.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="space-y-3 text-sm">
+
+          <div
+            class="flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              Modalidad
+            </span>
+
+            <span
+              id="summary-modality"
+              class="font-medium text-right"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div
+            class="flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              Consulta
+            </span>
+
+            <span
+              id="summary-consultation"
+              class="font-medium text-right
+                     max-w-[60%]"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div
+            id="summary-day-row"
+            class="hidden flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              Día
+            </span>
+
+            <span
+              id="summary-date"
+              class="font-medium text-right"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div
+            id="summary-time-row"
+            class="hidden flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              Horario
+            </span>
+
+            <span
+              id="summary-time"
+              class="font-medium text-right"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div
+            class="flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              Valor total
+            </span>
+
+            <span
+              id="summary-total"
+              class="font-medium text-right"
+            >
+              -
+            </span>
+
+          </div>
+
+
+          <div
+            class="pt-3 mt-1
+                   border-t border-sage-200
+                   flex justify-between gap-4"
+          >
+
+            <span class="text-text-muted">
+              A abonar para reservar
+            </span>
+
+            <span
+              id="summary-reservation"
+              class="font-semibold
+                     text-sage-600 text-right"
+            >
+              -
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <button
+        type="button"
+        onclick="sendToWhatsapp()"
+        class="w-full mt-5 py-4
+               rounded-2xl
+               bg-[#7FA58D]
+               text-white
+               font-semibold text-sm
+               shadow-sm
+               hover:bg-[#6F967E]
+               active:scale-[0.99]
+               transition
+               flex items-center
+               justify-center gap-2"
+      >
+
+        <svg
+          width="19"
+          height="19"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path
+            d="M21 11.5a8.38 8.38 0 0 1-9 8.5
+               8.5 8.5 0 0 1-3.8-.9L3 20l.9-4.9
+               A8.5 8.5 0 1 1 21 11.5Z"
+          />
+
+          <path
+            d="M8.5 8.5c.3-.6.6-.6 1-.6h.4
+               c.2 0 .4.1.5.4l.7 1.7
+               c.1.2 0 .4.1.6l-.5.6
+               c-.1.2-.1.4 0 .5.3.6
+               1.1 1.7 2.2 2.2.2.1.4.1.5-.1
+               l.7-.8c.2-.2.4-.2.6-.1l1.7.8
+               c.2.1.3.5.5v.4
+               c0 .4-.2.7-.6.9-.5.3-1.3.5-2.1.3
+               -1.1-.3-2.3-1-3.5-2.1
+               -1-.9-1.8-2-2.2-2.9
+               -.4-.8-.4-1.6-.1-2.3Z"
+          />
+
+        </svg>
+
+        Solicitar turno por WhatsApp
+
+      </button>
+
+
+      <!-- VOLVER -->
+
+      <button
+        type="button"
+        onclick="goBackToStep1()"
+        class="w-full mt-2 py-3
+               rounded-2xl
+               text-text-soft
+               font-medium text-sm
+               hover:bg-gray-100
+               transition"
+      >
+        ← Volver
+      </button>
+
+    </section>
+
+
+    <!-- ======================================================
+         PASO 3
+    ======================================================= -->
+
+    <section
+      id="step-3"
+      class="hidden fade-in"
+    >
+
+      <div class="text-center py-8">
+
+        <div
+          class="mx-auto w-16 h-16
+                 rounded-full
+                 bg-sage-100
+                 flex items-center
+                 justify-center
+                 text-2xl mb-5"
+        >
+          ✓
+        </div>
+
+        <h2 class="text-xl font-semibold">
+          ¡Solicitud preparada!
+        </h2>
+
+        <p
+          class="text-sm text-text-soft
+                 mt-3 leading-6"
+        >
+          Se abrirá WhatsApp con toda la información
+          de tu solicitud para que puedas enviarla
+          a la clínica.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer
+      class="text-center mt-10 pb-5"
+    >
+
+      <p
+        class="text-[11px] text-gray-400
+               leading-5"
+      >
+        La solicitud será enviada por WhatsApp.
+        La confirmación del turno queda sujeta
+        a disponibilidad.
+      </p>
+
+    </footer>
+
+  </main>
+
+
+  <!-- ========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    /*
+    ============================================================
+    CONFIGURACIÓN
+    ============================================================
+    */
+
+    // CAMBIAR POR EL WHATSAPP REAL DE LA CLÍNICA.
+    //
+    // Ejemplo:
+    // const CLINICA_WHATSAPP = "5492235551234";
+
+    const CLINICA_WHATSAPP = "549XXXXXXXXXX";
+
+
+    /*
+    ============================================================
+    ESTADO
+    ============================================================
+    */
+
+    let modality = "";
+    let consultationType = "";
+
+
+    /*
+    ============================================================
+    DATOS DE CONSULTAS
+    ============================================================
+    */
+
+    const consultationData = {
+
+      integrative: {
+
+        name:
+          "Consulta Odontológica Integrativa",
+
+        duration:
+          "1 hora",
+
+        total:
+          50000,
+
+        reservation:
+          20000,
+
+        remaining:
+          30000
+
+      },
+
+
+      "no-integrative": {
+
+        name:
+          "Consulta Odontológica NO integrativa",
+
+        duration:
+          "15 minutos",
+
+        total:
+          25000,
+
+        reservation:
+          10000,
+
+        remaining:
+          15000
+
+      }
+
+    };
+
+
+    /*
+    ============================================================
+    FORMATO DE DINERO
+    ============================================================
+    */
+
+    function formatPrice(value) {
+
+      return "$" +
+        value.toLocaleString("es-AR");
+
+    }
+
+
+    /*
+    ============================================================
+    CARGAR MARTES DEL MES ACTUAL
+    ============================================================
+    */
+
+    function cargarMartesDelMes() {
+
+      const select =
+        document.getElementById("fecha");
+
+      if (!select) {
+        return;
+      }
+
+
+      const hoy = new Date();
+
+      const anio =
+        hoy.getFullYear();
+
+      const mes =
+        hoy.getMonth();
+
+      const diaActual =
+        hoy.getDate();
+
+
+      // Limpiar el selector
+
+      select.innerHTML = `
+        <option value="">
+          Seleccioná un día
+        </option>
+      `;
+
+
+      // Último día del mes
+
+      const ultimoDia =
+        new Date(
+          anio,
+          mes + 1,
+          0
+        ).getDate();
+
+
+      // Recorrer los días restantes
+      // del mes actual
+
+      for (
+        let dia = diaActual;
+        dia <= ultimoDia;
+        dia++
+      ) {
+
+        const fecha =
+          new Date(
+            anio,
+            mes,
+            dia
+          );
+
+
+        // JavaScript:
+        //
+        // 0 = domingo
+        // 1 = lunes
+        // 2 = martes
+        // 3 = miércoles
+        // 4 = jueves
+        // 5 = viernes
+        // 6 = sábado
+
+        if (
+          fecha.getDay() === 2
+        ) {
+
+          const nombreMes =
+            fecha.toLocaleDateString(
+              "es-AR",
+              {
+                month: "long"
+              }
+            );
+
+
+          const diaFormateado =
+            String(dia)
+              .padStart(2, "0");
+
+
+          const mesFormateado =
+            String(mes + 1)
+              .padStart(2, "0");
+
+
+          const valor =
+            `${anio}-${mesFormateado}-${diaFormateado}`;
+
+
+          const texto =
+            `Martes ${dia} de ${nombreMes}`;
+
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+
+          option.value =
+            valor;
+
+
+          option.textContent =
+            texto;
+
+
+          select.appendChild(
+            option
+          );
+
+        }
+
+      }
+
+    }
+
+
+    /*
+    ============================================================
+    SELECCIONAR MODALIDAD
+    ============================================================
+    */
+
+    function selectModality(type) {
+
+      modality = type;
+
+
+      const virtual =
+        document.getElementById(
+          "option-virtual"
+        );
+
+
+      const presencial =
+        document.getElementById(
+          "option-presencial"
+        );
+
+
+      virtual.classList.remove(
+        "selected"
+      );
+
+
+      presencial.classList.remove(
+        "selected"
+      );
+
+
+      if (
+        type === "virtual"
+      ) {
+
+        virtual.classList.add(
+          "selected"
+        );
+
+        showVirtual();
+
+      }
+
+
+      if (
+        type === "presencial"
+      ) {
+
+        presencial.classList.add(
+          "selected"
+        );
+
+        showPresencial();
+
+      }
+
+
+      activateContinueButton();
+
+    }
+
+
+    /*
+    ============================================================
+    VIRTUAL
+    ============================================================
+    */
+
+    function showVirtual() {
+
+      document
+        .getElementById("virtual-info")
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById("presencial-info")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("schedule-section")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("location-section")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("virtual-schedule-info")
+        .classList.remove("hidden");
+
+
+      consultationType = "";
+
+
+      document
+        .getElementById(
+          "option-integrative"
+        )
+        .classList.remove("selected");
+
+
+      document
+        .getElementById(
+          "option-no-integrative"
+        )
+        .classList.remove("selected");
+
+
+      document
+        .getElementById(
+          "consultation-detail"
+        )
+        .classList.add("hidden");
+
+
+      document
+        .getElementById(
+          "presencial-payment"
+        )
+        .classList.add("hidden");
+
+
+      document
+        .getElementById(
+          "summary-day-row"
+        )
+        .classList.add("hidden");
+
+
+      document
+        .getElementById(
+          "summary-time-row"
+        )
+        .classList.add("hidden");
+
+    }
+
+
+    /*
+    ============================================================
+    PRESENCIAL
+    ============================================================
+    */
+
+    function showPresencial() {
+
+      document
+        .getElementById("virtual-info")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("presencial-info")
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById("schedule-section")
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById("location-section")
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById("virtual-schedule-info")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById(
+          "summary-day-row"
+        )
+        .classList.remove("hidden");
+
+
+      document
+        .getElementById(
+          "summary-time-row"
+        )
+        .classList.remove("hidden");
+
+    }
+
+
+    /*
+    ============================================================
+    SELECCIONAR CONSULTA
+    ============================================================
+    */
+
+    function selectConsultation(type) {
+
+      consultationType = type;
+
+
+      const integrative =
+        document.getElementById(
+          "option-integrative"
+        );
+
+
+      const noIntegrative =
+        document.getElementById(
+          "option-no-integrative"
+        );
+
+
+      integrative.classList.remove(
+        "selected"
+      );
+
+
+      noIntegrative.classList.remove(
+        "selected"
+      );
+
+
+      if (
+        type === "integrative"
+      ) {
+
+        integrative.classList.add(
+          "selected"
+        );
+
+      }
+
+
+      if (
+        type === "no-integrative"
+      ) {
+
+        noIntegrative.classList.add(
+          "selected"
+        );
+
+      }
+
+
+      showConsultationDetails();
+
+      activateContinueButton();
+
+      updateSummary();
+
+    }
+
+
+    /*
+    ============================================================
+    DETALLE DE CONSULTA
+    ============================================================
+    */
+
+    function showConsultationDetails() {
+
+      const detail =
+        document.getElementById(
+          "consultation-detail"
+        );
+
+
+      const payment =
+        document.getElementById(
+          "presencial-payment"
+        );
+
+
+      const paymentContent =
+        document.getElementById(
+          "presencial-payment-content"
+        );
+
+
+      const data =
+        consultationData[
+          consultationType
+        ];
+
+
+      if (!data) {
+
+        detail.classList.add(
+          "hidden"
+        );
+
+        payment.classList.add(
+          "hidden"
+        );
+
+        return;
+
+      }
+
+
+      detail.classList.remove(
+        "hidden"
+      );
+
+
+      payment.classList.remove(
+        "hidden"
+      );
+
+
+      if (
+        consultationType ===
+        "integrative"
+      ) {
+
+        detail.innerHTML = `
+
+          <div class="flex items-start gap-3">
+
+            <div
+              class="w-9 h-9 rounded-xl
+                     bg-sage-100
+                     flex items-center
+                     justify-center
+                     shrink-0"
+            >
+              🌱
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Consulta Odontológica Integrativa
+              </h3>
+
+              <p
+                class="mt-2 text-sm
+                       text-text-soft
+                       leading-6"
+              >
+                En ella evaluamos tu salud
+                bucal y toda tu salud
+                sistémica general.
+              </p>
+
+              <p
+                class="mt-2 text-sm
+                       text-text-soft
+                       leading-6"
+              >
+                La duración de la consulta
+                es de
+                <strong class="text-text-main">
+                  1 hora
+                </strong>
+                e incluye el
+                <strong class="text-text-main">
+                  test diagnóstico de tu saliva
+                </strong>.
+              </p>
+
+            </div>
+
+          </div>
+        `;
+
+
+        paymentContent.innerHTML = `
+
+          <p>
+            El valor de la Evaluación
+            Odontológica Integrativa es de
+            <strong class="text-text-main">
+              $50.000
+            </strong>.
+          </p>
+
+          <div
+            class="mt-3 p-3.5 rounded-xl
+                   bg-white
+                   border border-peach-200"
+          >
+
+            <p
+              class="text-sm
+                     text-text-soft
+                     leading-5"
+            >
+
+              Para reservar el turno se debe
+              abonar
+              <strong class="text-text-main">
+                $20.000
+              </strong>.
+
+              El saldo restante de
+              <strong class="text-text-main">
+                $30.000
+              </strong>
+              se abona el día de la consulta.
+
+            </p>
+
+          </div>
+        `;
+
+      }
+
+
+      if (
+        consultationType ===
+        "no-integrative"
+      ) {
+
+        detail.innerHTML = `
+
+          <div class="flex items-start gap-3">
+
+            <div
+              class="w-9 h-9 rounded-xl
+                     bg-blush-100
+                     flex items-center
+                     justify-center
+                     shrink-0"
+            >
+              🦷
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Consulta Odontológica NO integrativa
+              </h3>
+
+              <p
+                class="mt-2 text-sm
+                       text-text-soft
+                       leading-6"
+              >
+                En ella evaluamos solo
+                tu salud bucal.
+              </p>
+
+              <p
+                class="mt-2 text-sm
+                       text-text-soft
+                       leading-6"
+              >
+                La duración de la consulta
+                es de
+                <strong class="text-text-main">
+                  15 minutos
+                </strong>.
+              </p>
+
+            </div>
+
+          </div>
+        `;
+
+
+        paymentContent.innerHTML = `
+
+          <p>
+            El valor de la consulta odontológica es de
+            <strong class="text-text-main">
+              $25.000
+            </strong>.
+          </p>
+
+          <div
+            class="mt-3 p-3.5 rounded-xl
+                   bg-white
+                   border border-peach-200"
+          >
+
+            <p
+              class="text-sm
+                     text-text-soft
+                     leading-5"
+            >
+
+              Para reservar el turno se debe
+              abonar
+              <strong class="text-text-main">
+                $10.000
+              </strong>.
+
+              El saldo restante de
+              <strong class="text-text-main">
+                $15.000
+              </strong>
+              se abona el día de la consulta.
+
+            </p>
+
+          </div>
+        `;
+
+      }
+
+    }
+
+
+    /*
+    ============================================================
+    ACTIVAR BOTÓN CONTINUAR
+    ============================================================
+    */
+
+    function activateContinueButton() {
+
+      const button =
+        document.getElementById(
+          "continue-step-1"
+        );
+
+
+      const valid =
+        modality === "virtual" ||
+        (
+          modality === "presencial" &&
+          consultationType !== ""
+        );
+
+
+      if (valid) {
+
+        button.disabled = false;
+
+        button.classList.remove(
+          "bg-gray-200",
+          "text-gray-400",
+          "cursor-not-allowed"
+        );
+
+        button.classList.add(
+          "bg-sage-400",
+          "text-white",
+          "hover:bg-sage-500"
+        );
+
+      } else {
+
+        button.disabled = true;
+
+      }
+
+    }
+
+
+    /*
+    ============================================================
+    IR AL PASO 2
+    ============================================================
+    */
+
+    function goToStep2() {
+
+      const valid =
+        modality === "virtual" ||
+        (
+          modality === "presencial" &&
+          consultationType !== ""
+        );
+
+
+      if (!valid) {
+        return;
+      }
+
+
+      document
+        .getElementById("step-1")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("step-2")
+        .classList.remove("hidden");
+
+
+      updateSummary();
+
+      setProgress(2);
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /*
+    ============================================================
+    VOLVER AL PASO 1
+    ============================================================
+    */
+
+    function goBackToStep1() {
+
+      document
+        .getElementById("step-2")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("step-1")
+        .classList.remove("hidden");
+
+
+      setProgress(1);
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /*
+    ============================================================
+    VALIDAR
+    ============================================================
+    */
+
+    function validateForm() {
+
+      updateSummary();
+
+    }
+
+
+    /*
+    ============================================================
+    ACTUALIZAR RESUMEN
+    ============================================================
+    */
+
+    function updateSummary() {
+
+      const summaryModality =
+        document.getElementById(
+          "summary-modality"
+        );
+
+
+      const summaryConsultation =
+        document.getElementById(
+          "summary-consultation"
+        );
+
+
+      const summaryTotal =
+        document.getElementById(
+          "summary-total"
+        );
+
+
+      const summaryReservation =
+        document.getElementById(
+          "summary-reservation"
+        );
+
+
+      const summaryTime =
+        document.getElementById(
+          "summary-time"
+        );
+
+
+      const summaryDate =
+        document.getElementById(
+          "summary-date"
+        );
+
+
+      /*
+      ----------------------------------------------------------
+      MODALIDAD
+      ----------------------------------------------------------
+      */
+
+      if (
+        modality === "virtual"
+      ) {
+
+        summaryModality.textContent =
+          "Virtual";
+
+        summaryConsultation.textContent =
+          "Consulta virtual";
+
+        summaryTotal.textContent =
+          "$35.000";
+
+        summaryReservation.textContent =
+          "$35.000";
+
+      }
+
+
+      if (
+        modality === "presencial"
+      ) {
+
+        const data =
+          consultationData[
+            consultationType
+          ];
+
+
+        summaryModality.textContent =
+          "Presencial";
+
+
+        if (data) {
+
+          summaryConsultation.textContent =
+            data.name;
+
+
+          summaryTotal.textContent =
+            formatPrice(
+              data.total
+            );
+
+
+          summaryReservation.textContent =
+            formatPrice(
+              data.reservation
+            );
+
+        } else {
+
+          summaryConsultation.textContent =
+            "-";
+
+          summaryTotal.textContent =
+            "-";
+
+          summaryReservation.textContent =
+            "-";
+
+        }
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      FECHA
+      ----------------------------------------------------------
+      */
+
+      const fechaSelect =
+        document.getElementById(
+          "fecha"
+        );
+
+
+      if (
+        fechaSelect &&
+        summaryDate
+      ) {
+
+        if (
+          fechaSelect.value
+        ) {
+
+          summaryDate.textContent =
+            fechaSelect.options[
+              fechaSelect.selectedIndex
+            ].text;
+
+        } else {
+
+          summaryDate.textContent =
+            "-";
+
+        }
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      HORARIO
+      ----------------------------------------------------------
+      */
+
+      const hora =
+        document
+          .getElementById("hora")
+          ?.value;
+
+
+      if (
+        summaryTime
+      ) {
+
+        summaryTime.textContent =
+          hora
+            ? hora
+            : "-";
+
+      }
+
+    }
+
+
+    /*
+    ============================================================
+    ENVIAR A WHATSAPP
+    ============================================================
+    */
+
+    function sendToWhatsapp() {
+
+      const nombre =
+        document
+          .getElementById("nombre")
+          .value
+          .trim();
+
+
+      const telefono =
+        document
+          .getElementById("telefono")
+          .value
+          .trim();
+
+
+      const motivo =
+        document
+          .getElementById("motivo")
+          .value
+          .trim();
+
+
+      const fechaSelect =
+        document.getElementById(
+          "fecha"
+        );
+
+
+      const hora =
+        document
+          .getElementById("hora")
+          .value;
+
+
+      /*
+      ----------------------------------------------------------
+      VALIDAR DATOS
+      ----------------------------------------------------------
+      */
+
+      if (
+        !nombre ||
+        !telefono ||
+        !motivo
+      ) {
+
+        alert(
+          "Por favor completá todos los campos obligatorios."
+        );
+
+        return;
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      VALIDAR PRESENCIAL
+      ----------------------------------------------------------
+      */
+
+      if (
+        modality === "presencial"
+      ) {
+
+        if (
+          !fechaSelect.value
+        ) {
+
+          alert(
+            "Por favor seleccioná un martes."
+          );
+
+          return;
+
+        }
+
+
+        if (!hora) {
+
+          alert(
+            "Por favor seleccioná una franja horaria."
+          );
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      DATOS
+      ----------------------------------------------------------
+      */
+
+      let tipoConsulta;
+      let duracion;
+      let valorTotal;
+      let montoReserva;
+      let saldo;
+
+
+      /*
+      VIRTUAL
+      */
+
+      if (
+        modality === "virtual"
+      ) {
+
+        tipoConsulta =
+          "Consulta virtual";
+
+        duracion =
+          "Consulta virtual";
+
+        valorTotal =
+          35000;
+
+        montoReserva =
+          35000;
+
+        saldo =
+          0;
+
+      }
+
+
+      /*
+      PRESENCIAL
+      */
+
+      else {
+
+        const data =
+          consultationData[
+            consultationType
+          ];
+
+
+        if (!data) {
+
+          alert(
+            "Por favor seleccioná el tipo de consulta."
+          );
+
+          return;
+
+        }
+
+
+        tipoConsulta =
+          data.name;
+
+        duracion =
+          data.duration;
+
+        valorTotal =
+          data.total;
+
+        montoReserva =
+          data.reservation;
+
+        saldo =
+          data.remaining;
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      FECHA Y HORARIO
+      ----------------------------------------------------------
+      */
+
+      let fechaMensaje =
+        "A coordinar";
+
+      let horarioMensaje =
+        "A coordinar";
+
+
+      if (
+        modality === "presencial"
+      ) {
+
+        fechaMensaje =
+          fechaSelect.options[
+            fechaSelect.selectedIndex
+          ].text;
+
+
+        horarioMensaje =
+          hora;
+
+      }
+
+
+      /*
+      ----------------------------------------------------------
+      MENSAJE DE WHATSAPP
+      ----------------------------------------------------------
+      */
+
+      const mensaje =
+
+`Hola! Quiero solicitar un turno odontológico.
+
+*SOLICITUD DE TURNO*
+
+*Modalidad:*
+${modality === "virtual"
+  ? "Consulta virtual"
+  : "Consulta presencial"}
+
+*Tipo de consulta:*
+${tipoConsulta}
+
+*Día:*
+${fechaMensaje}
+
+*Horario:*
+${horarioMensaje}
+
+*DATOS DEL PACIENTE*
+
+*Nombre y apellido:*
+${nombre}
+
+*WhatsApp:*
+${telefono}
+
+*Motivo de consulta:*
+${motivo}
+
+Quedo a disposición para enviar el comprobante y confirmar el turno.`;
+
+
+      /*
+      ----------------------------------------------------------
+      URL WHATSAPP
+      ----------------------------------------------------------
+      */
+
+      const whatsappURL =
+        "https://wa.me/" +
+        CLINICA_WHATSAPP +
+        "?text=" +
+        encodeURIComponent(
+          mensaje
+        );
+
+
+      /*
+      ----------------------------------------------------------
+      PASO 3
+      ----------------------------------------------------------
+      */
+
+      document
+        .getElementById("step-2")
+        .classList.add("hidden");
+
+
+      document
+        .getElementById("step-3")
+        .classList.remove("hidden");
+
+
+      setProgress(3);
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      /*
+      ----------------------------------------------------------
+      ABRIR WHATSAPP
+      ----------------------------------------------------------
+      */
+
+      setTimeout(() => {
+
+        window.open(
+          whatsappURL,
+          "_blank"
+        );
+
+      }, 300);
+
+    }
+
+
+    /*
+    ============================================================
+    PROGRESO
+    ============================================================
+    */
+
+    function setProgress(step) {
+
+      const progress1 =
+        document.getElementById(
+          "progress-1"
+        );
+
+
+      const progress2 =
+        document.getElementById(
+          "progress-2"
+        );
+
+
+      const progress3 =
+        document.getElementById(
+          "progress-3"
+        );
+
+
+      [
+        progress1,
+        progress2,
+        progress3
+      ].forEach(
+        element => {
+
+          element.classList.remove(
+            "bg-sage-300"
+          );
+
+          element.classList.add(
+            "bg-gray-200"
+          );
+
+        }
+      );
+
+
+      if (step >= 1) {
+
+        progress1.classList.remove(
+          "bg-gray-200"
+        );
+
+        progress1.classList.add(
+          "bg-sage-300"
+        );
+
+      }
+
+
+      if (step >= 2) {
+
+        progress2.classList.remove(
+          "bg-gray-200"
+        );
+
+        progress2.classList.add(
+          "bg-sage-300"
+        );
+
+      }
+
+
+      if (step >= 3) {
+
+        progress3.classList.remove(
+          "bg-gray-200"
+        );
+
+        progress3.classList.add(
+          "bg-sage-300"
+        );
+
+      }
+
+    }
+
+
+    /*
+    ============================================================
+    EVENTOS
+    ============================================================
+    */
+
+    document
+      .getElementById("nombre")
+      .addEventListener(
+        "input",
+        validateForm
+      );
+
+
+    document
+      .getElementById("telefono")
+      .addEventListener(
+        "input",
+        validateForm
+      );
+
+
+    document
+      .getElementById("motivo")
+      .addEventListener(
+        "input",
+        validateForm
+      );
+
+
+    document
+      .getElementById("hora")
+      .addEventListener(
+        "change",
+        validateForm
+      );
+
+
+    /*
+    ============================================================
+    INICIALIZACIÓN
+    ============================================================
+    */
+
+    //cargarMartesDelMes();
+
+  </script>
+
+</body>
+</html>
