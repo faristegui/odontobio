@@ -159,16 +159,21 @@
     }
   </style>
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY6PJWCLDV"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
   gtag('js', new Date());
 
   gtag('config', 'G-EY6PJWCLDV');
 </script>
-
 
 <body class="min-h-screen bg-cream">
 
@@ -193,9 +198,11 @@
           stroke-linecap="round"
           stroke-linejoin="round"
         >
+
           <path
             d="M9 4.5C7.5 3 5 3.5 4 5.5c-1.5 3 0 7 1.5 9.5C6.5 17 7.5 21 10 21c1.5 0 2-2 2-4 0 2 .5 4 2 4 2.5 0 3.5-4 4.5-6 1.5-2.5 3-6.5 1.5-9.5-1-2-3.5-2.5-5-1L12 6 9 4.5Z"
           />
+
         </svg>
 
       </div>
@@ -329,9 +336,6 @@
 
             </div>
 
-            <div class="flex flex-wrap gap-2 mt-4">
-            </div>
-
           </div>
 
         </div>
@@ -412,14 +416,25 @@
 
       </button>
 
+
+      <!-- AVISO -->
+
       <div
         class="mt-3 mb-4 flex items-center justify-center gap-2 rounded-2xl border border-amber-200
                bg-amber-50 px-4 py-3 text-center shadow-sm"
       >
-        <span class="text-base" aria-label="Advertencia">⚠️</span>
+
+        <span
+          class="text-base"
+          aria-label="Advertencia"
+        >
+          ⚠️
+        </span>
+
         <p class="text-sm font-semibold text-amber-900">
           Obras sociales y prepagas, a través de reintegro.
         </p>
+
       </div>
 
 
@@ -540,9 +555,7 @@
                 salud sistémica general.
               </p>
 
-              <div
-                class="flex flex-wrap gap-2 mt-4"
-              >
+              <div class="flex flex-wrap gap-2 mt-4">
 
                 <span
                   class="px-2.5 py-1 rounded-full
@@ -594,9 +607,7 @@
                 tu salud bucal.
               </p>
 
-              <div
-                class="flex flex-wrap gap-2 mt-4"
-              >
+              <div class="flex flex-wrap gap-2 mt-4">
 
                 <span
                   class="px-2.5 py-1 rounded-full
@@ -819,7 +830,7 @@
 
 
       <!-- ====================================================
-           HORARIO PRESENCIAL
+           DISPONIBILIDAD
       ===================================================== -->
 
       <div
@@ -845,8 +856,15 @@
             <div>
 
               <h3 class="font-semibold text-sm">
-                Horarios de atención
+                Disponibilidad
               </h3>
+
+              <p
+                class="text-xs text-text-muted
+                       mt-0.5"
+              >
+                Elegí el día y rango horario de tu preferencia. (Sujeto a disponibilidad)
+              </p>
 
             </div>
 
@@ -854,143 +872,100 @@
 
         </div>
 
-
-        <!-- ==================================================
-             DÍA — MARTES AUTOMÁTICOS
-        =================================================== -->
 
         <div
           class="rounded-xl
                  bg-sage-50
                  border border-sage-200
-                 p-4 mb-5"
+                 p-4"
         >
 
-          <div class="flex items-center gap-3">
-
-            <span class="text-lg">
-              📆
-            </span>
-
-            <div class="flex-1">
-
-              <p
-                class="text-xs text-text-muted mb-1"
-              >
-                Día de atención
-              </p>
-
-              <!--<select
-                id="fecha"
-                required
-                onchange="updateSummary()"
-                class="w-full px-3 py-2.5
-                       rounded-xl
-                       border border-sage-200
-                       bg-white text-sm
-                       font-medium
-                       focus:border-sage-400
-                       focus:ring-4
-                       focus:ring-sage-100"
-              >
-
-                <option value="">
-                  Seleccioná un día
-                </option>
-
-              </select>-->
-
-              <select
-                id="fecha"
-                required
-                onchange="updateSummary()"
-                class="w-full px-3 py-2.5
-                       rounded-xl
-                       border border-sage-200
-                       bg-white text-sm
-                       font-medium
-                       focus:border-sage-400
-                       focus:ring-4
-                       focus:ring-sage-100"
-              >
-
-                <option value="">
-                  Seleccioná un día
-                </option>
-                <option value="Martes 20 de Octubre">
-                  Martes 20 de Octubre
-                </option>
-                <option value="Jueves 22 de Octubre">
-                  Jueves 22 de Octubre
-                </option>
-                <option value="Martes 27 de Octubre">
-                  Martes 27 de Octubre
-                </option>
-                <option value="Jueves 29 de Octubre">
-                  Jueves 29 de Octubre
-                </option>
-                <option value="Martes 3 de Noviembre">
-                  Martes 3 de Noviembre
-                </option>
-                <option value="Martes 10 de Noviembre">
-                  Martes 10 de Noviembre
-                </option>
-                <option value="Martes 17 de Noviembre">
-                  Martes 17 de Noviembre
-                </option>
-                <option value="Martes 24 de Noviembre">
-                  Martes 24 de Noviembre
-                </option>
-
-              </select>
-
-
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- ==================================================
-             HORARIO — NO SE MODIFICA
-        =================================================== -->
-
-        <div>
-
           <label
-            for="hora"
+            for="disponibilidad"
             class="required block text-sm
                    font-medium mb-2"
           >
-            Elegí el horario
+            Día y horario
           </label>
 
           <select
-            id="hora"
+            id="disponibilidad"
             required
-            onchange="validateForm()"
-            class="w-full px-4 py-3.5
+            onchange="updateSummary()"
+            class="w-full px-3 py-3.5
                    rounded-xl
-                   border border-gray-200
+                   border border-sage-200
                    bg-white text-sm
-                   transition
+                   font-medium
                    focus:border-sage-400
                    focus:ring-4
                    focus:ring-sage-100"
           >
 
             <option value="">
-              Seleccioná una franja horaria
+              Seleccioná un día y horario
             </option>
 
-            <option value="Mañana — 08:30 a 12:30">
-              Mañana — 08:30 a 12:30
+            <option value="Martes 20 de Octubre - Mañana (8:30 - 12:30)">
+              Martes 20 de Octubre - Mañana (8:30 - 12:30)
             </option>
 
-            <option value="Tarde — 12:30 a 15:30">
-              Tarde — 12:30 a 15:30
+            <option value="Martes 20 de Octubre - Tarde (12:30 - 15:30)">
+              Martes 20 de Octubre - Tarde (12:30 - 15:30)
+            </option>
+
+
+            <option value="Jueves 22 de Octubre - Tarde (12:30 - 15:30)">
+              Jueves 22 de Octubre - Tarde (12:00 - 15:30)
+            </option>
+
+
+            <option value="Martes 27 de Octubre - Mañana (8:30 - 12:30)">
+              Martes 27 de Octubre - Mañana (8:30 - 12:30)
+            </option>
+
+            <option value="Martes 27 de Octubre - Tarde (12:30 - 15:30)">
+              Martes 27 de Octubre - Tarde (12:30 - 15:30)
+            </option>
+
+            <option value="Jueves 29 de Octubre - Tarde (12:30 - 15:30)">
+              Jueves 29 de Octubre - Tarde (12:00 - 15:30)
+            </option>
+
+
+            <option value="Martes 3 de Noviembre - Mañana (8:30 - 12:30)">
+              Martes 3 de Noviembre - Mañana (8:30 - 12:30)
+            </option>
+
+            <option value="Martes 3 de Noviembre - Tarde (12:30 - 15:30)">
+              Martes 3 de Noviembre - Tarde (12:30 - 15:30)
+            </option>
+
+
+            <option value="Martes 10 de Noviembre - Mañana (8:30 - 12:30)">
+              Martes 10 de Noviembre - Mañana (8:30 - 12:30)
+            </option>
+
+            <option value="Martes 10 de Noviembre - Tarde (12:30 - 15:30)">
+              Martes 10 de Noviembre - Tarde (12:30 - 15:30)
+            </option>
+
+
+            <option value="Martes 17 de Noviembre - Mañana (8:30 - 12:30)">
+              Martes 17 de Noviembre - Mañana (8:30 - 12:30)
+            </option>
+
+            <option value="Martes 17 de Noviembre - Tarde (12:30 - 15:30)">
+              Martes 17 de Noviembre - Tarde (12:30 - 15:30)
+            </option>
+
+
+            <option value="Martes 24 de Noviembre - Mañana (8:30 - 12:30)">
+              Martes 24 de Noviembre - Mañana (8:30 - 12:30)
+            </option>
+
+            <option value="Martes 24 de Noviembre - Tarde (12:30 - 15:30)">
+              Martes 24 de Noviembre - Tarde (12:30 - 15:30)
             </option>
 
           </select>
@@ -1084,9 +1059,7 @@
       </div>
 
 
-      <!-- ====================================================
-           UBICACIÓN
-      ===================================================== -->
+      <!-- UBICACIÓN -->
 
       <div
         id="location-section"
@@ -1137,9 +1110,7 @@
       </div>
 
 
-      <!-- ====================================================
-           RESUMEN
-      ===================================================== -->
+      <!-- RESUMEN -->
 
       <div
         class="mt-5 rounded-2xl
@@ -1217,36 +1188,18 @@
 
 
           <div
-            id="summary-day-row"
+            id="summary-availability-row"
             class="hidden flex justify-between gap-4"
           >
 
             <span class="text-text-muted">
-              Día
+              Disponibilidad
             </span>
 
             <span
-              id="summary-date"
-              class="font-medium text-right"
-            >
-              -
-            </span>
-
-          </div>
-
-
-          <div
-            id="summary-time-row"
-            class="hidden flex justify-between gap-4"
-          >
-
-            <span class="text-text-muted">
-              Horario
-            </span>
-
-            <span
-              id="summary-time"
-              class="font-medium text-right"
+              id="summary-availability"
+              class="font-medium text-right
+                     max-w-[65%]"
             >
               -
             </span>
@@ -1339,8 +1292,9 @@
                c-.1.2-.1.4 0 .5.3.6
                1.1 1.7 2.2 2.2.2.1.4.1.5-.1
                l.7-.8c.2-.2.4-.2.6-.1l1.7.8
-               c.2.1.3.5.5v.4
-               c0 .4-.2.7-.6.9-.5.3-1.3.5-2.1.3
+               c.2.1.3.5.5.5.9
+               v.4c0 .4-.2.7-.6.9
+               -.5.3-1.3.5-2.1.3
                -1.1-.3-2.3-1-3.5-2.1
                -1-.9-1.8-2-2.2-2.9
                -.4-.8-.4-1.6-.1-2.3Z"
@@ -1443,11 +1397,6 @@
     ============================================================
     */
 
-    // CAMBIAR POR EL WHATSAPP REAL DE LA CLÍNICA.
-    //
-    // Ejemplo:
-    // const CLINICA_WHATSAPP = "5492235551234";
-
     const CLINICA_WHATSAPP = "5492236662804";
 
 
@@ -1521,136 +1470,6 @@
 
       return "$" +
         value.toLocaleString("es-AR");
-
-    }
-
-
-    /*
-    ============================================================
-    CARGAR MARTES DEL MES ACTUAL
-    ============================================================
-    */
-
-    function cargarMartesDelMes() {
-
-      const select =
-        document.getElementById("fecha");
-
-      if (!select) {
-        return;
-      }
-
-
-      const hoy = new Date();
-
-      const anio =
-        hoy.getFullYear();
-
-      const mes =
-        hoy.getMonth();
-
-      const diaActual =
-        hoy.getDate();
-
-
-      // Limpiar el selector
-
-      select.innerHTML = `
-        <option value="">
-          Seleccioná un día
-        </option>
-      `;
-
-
-      // Último día del mes
-
-      const ultimoDia =
-        new Date(
-          anio,
-          mes + 1,
-          0
-        ).getDate();
-
-
-      // Recorrer los días restantes
-      // del mes actual
-
-      for (
-        let dia = diaActual;
-        dia <= ultimoDia;
-        dia++
-      ) {
-
-        const fecha =
-          new Date(
-            anio,
-            mes,
-            dia
-          );
-
-
-        // JavaScript:
-        //
-        // 0 = domingo
-        // 1 = lunes
-        // 2 = martes
-        // 3 = miércoles
-        // 4 = jueves
-        // 5 = viernes
-        // 6 = sábado
-
-        if (
-          fecha.getDay() === 2
-        ) {
-
-          const nombreMes =
-            fecha.toLocaleDateString(
-              "es-AR",
-              {
-                month: "long"
-              }
-            );
-
-
-          const diaFormateado =
-            String(dia)
-              .padStart(2, "0");
-
-
-          const mesFormateado =
-            String(mes + 1)
-              .padStart(2, "0");
-
-
-          const valor =
-            `${anio}-${mesFormateado}-${diaFormateado}`;
-
-
-          const texto =
-            `Martes ${dia} de ${nombreMes}`;
-
-
-          const option =
-            document.createElement(
-              "option"
-            );
-
-
-          option.value =
-            valor;
-
-
-          option.textContent =
-            texto;
-
-
-          select.appendChild(
-            option
-          );
-
-        }
-
-      }
 
     }
 
@@ -1785,14 +1604,7 @@
 
       document
         .getElementById(
-          "summary-day-row"
-        )
-        .classList.add("hidden");
-
-
-      document
-        .getElementById(
-          "summary-time-row"
+          "summary-availability-row"
         )
         .classList.add("hidden");
 
@@ -1834,14 +1646,7 @@
 
       document
         .getElementById(
-          "summary-day-row"
-        )
-        .classList.remove("hidden");
-
-
-      document
-        .getElementById(
-          "summary-time-row"
+          "summary-availability-row"
         )
         .classList.remove("hidden");
 
@@ -2012,6 +1817,7 @@
                 😴 dificultades para dormir <br>
                 🧠 períodos de estrés sostenido <br>
                 🤰 si estas embarazada.
+
               </p>
 
               <p
@@ -2019,17 +1825,19 @@
                       text-text-soft
                       leading-6"
               >
+
                 En esta consulta buscamos comprender no solo lo que sucede en tu boca,
                 sino también cómo se relaciona con el funcionamiento de todo tu organismo,
                 para orientar un abordaje personalizado.
-              </p>
 
+              </p>
 
               <p
                 class="mt-2 text-sm
                        text-text-soft
                        leading-6"
               >
+
                 La duración de la consulta
                 es de
                 <strong class="text-text-main">
@@ -2039,6 +1847,7 @@
                 <strong class="text-text-main">
                   test diagnóstico de tu saliva
                 </strong>.
+
               </p>
 
             </div>
@@ -2050,11 +1859,14 @@
         paymentContent.innerHTML = `
 
           <p>
+
             El valor de la Evaluación
             Odontológica Integrativa es de
+
             <strong class="text-text-main">
               $50.000
             </strong>.
+
           </p>
 
           <div
@@ -2071,14 +1883,17 @@
 
               Para reservar el turno se debe
               abonar
+
               <strong class="text-text-main">
                 $20.000
               </strong>.
 
               El saldo restante de
+
               <strong class="text-text-main">
                 $30.000
               </strong>
+
               se abona el día de la consulta.
 
             </p>
@@ -2119,8 +1934,10 @@
                        text-text-soft
                        leading-6"
               >
+
                 En ella evaluamos solo
                 tu salud bucal.
+
               </p>
 
               <p
@@ -2128,11 +1945,14 @@
                        text-text-soft
                        leading-6"
               >
+
                 La duración de la consulta
                 es de
+
                 <strong class="text-text-main">
                   15 minutos
                 </strong>.
+
               </p>
 
             </div>
@@ -2144,10 +1964,13 @@
         paymentContent.innerHTML = `
 
           <p>
+
             El valor de la consulta odontológica es de
+
             <strong class="text-text-main">
               $25.000
             </strong>.
+
           </p>
 
           <div
@@ -2164,14 +1987,17 @@
 
               Para reservar el turno se debe
               abonar
+
               <strong class="text-text-main">
                 $15.000
               </strong>.
 
               El saldo restante de
+
               <strong class="text-text-main">
                 $10.000
               </strong>
+
               se abona el día de la consulta.
 
             </p>
@@ -2349,15 +2175,9 @@
         );
 
 
-      const summaryTime =
+      const summaryAvailability =
         document.getElementById(
-          "summary-time"
-        );
-
-
-      const summaryDate =
-        document.getElementById(
-          "summary-date"
+          "summary-availability"
         );
 
 
@@ -2435,60 +2255,34 @@
 
       /*
       ----------------------------------------------------------
-      FECHA
+      DISPONIBILIDAD
       ----------------------------------------------------------
       */
 
-      const fechaSelect =
+      const disponibilidad =
         document.getElementById(
-          "fecha"
+          "disponibilidad"
         );
 
 
       if (
-        fechaSelect &&
-        summaryDate
+        disponibilidad &&
+        summaryAvailability
       ) {
 
         if (
-          fechaSelect.value
+          disponibilidad.value
         ) {
 
-          summaryDate.textContent =
-            fechaSelect.options[
-              fechaSelect.selectedIndex
-            ].text;
+          summaryAvailability.textContent =
+            disponibilidad.value;
 
         } else {
 
-          summaryDate.textContent =
+          summaryAvailability.textContent =
             "-";
 
         }
-
-      }
-
-
-      /*
-      ----------------------------------------------------------
-      HORARIO
-      ----------------------------------------------------------
-      */
-
-      const hora =
-        document
-          .getElementById("hora")
-          ?.value;
-
-
-      if (
-        summaryTime
-      ) {
-
-        summaryTime.textContent =
-          hora
-            ? hora
-            : "-";
 
       }
 
@@ -2524,16 +2318,16 @@
           .trim();
 
 
-      const fechaSelect =
+      const disponibilidadSelect =
         document.getElementById(
-          "fecha"
+          "disponibilidad"
         );
 
 
-      const hora =
-        document
-          .getElementById("hora")
-          .value;
+      const disponibilidad =
+        disponibilidadSelect
+          ? disponibilidadSelect.value
+          : "";
 
 
       /*
@@ -2568,22 +2362,11 @@
       ) {
 
         if (
-          !fechaSelect.value
+          !disponibilidad
         ) {
 
           alert(
-            "Por favor seleccioná un martes."
-          );
-
-          return;
-
-        }
-
-
-        if (!hora) {
-
-          alert(
-            "Por favor seleccioná una franja horaria."
+            "Por favor seleccioná un día y horario."
           );
 
           return;
@@ -2600,10 +2383,8 @@
       */
 
       let tipoConsulta;
-      let duracion;
       let valorTotal;
       let montoReserva;
-      let saldo;
 
 
       /*
@@ -2617,17 +2398,11 @@
         tipoConsulta =
           "Consulta virtual";
 
-        duracion =
-          "Consulta virtual";
-
         valorTotal =
           35000;
 
         montoReserva =
           35000;
-
-        saldo =
-          0;
 
       }
 
@@ -2658,31 +2433,22 @@
         tipoConsulta =
           data.name;
 
-        duracion =
-          data.duration;
-
         valorTotal =
           data.total;
 
         montoReserva =
           data.reservation;
 
-        saldo =
-          data.remaining;
-
       }
 
 
       /*
       ----------------------------------------------------------
-      FECHA Y HORARIO
+      DISPONIBILIDAD PARA WHATSAPP
       ----------------------------------------------------------
       */
 
-      let fechaMensaje =
-        "A coordinar";
-
-      let horarioMensaje =
+      let disponibilidadMensaje =
         "A coordinar";
 
 
@@ -2690,14 +2456,8 @@
         modality === "presencial"
       ) {
 
-        fechaMensaje =
-          fechaSelect.options[
-            fechaSelect.selectedIndex
-          ].text;
-
-
-        horarioMensaje =
-          hora;
+        disponibilidadMensaje =
+          disponibilidad;
 
       }
 
@@ -2722,11 +2482,8 @@ ${modality === "virtual"
 *Tipo de consulta:*
 ${tipoConsulta}
 
-*Día:*
-${fechaMensaje}
-
-*Horario:*
-${horarioMensaje}
+*Día y horario elegido:*
+${disponibilidadMensaje}
 
 *DATOS DEL PACIENTE*
 
@@ -2917,7 +2674,7 @@ Quedo a disposición para enviar el comprobante y confirmar el turno.`;
 
 
     document
-      .getElementById("hora")
+      .getElementById("disponibilidad")
       .addEventListener(
         "change",
         validateForm
@@ -2930,7 +2687,7 @@ Quedo a disposición para enviar el comprobante y confirmar el turno.`;
     ============================================================
     */
 
-    //cargarMartesDelMes();
+    setProgress(1);
 
   </script>
 
