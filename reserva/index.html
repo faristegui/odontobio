@@ -826,6 +826,35 @@
 
         </div>
 
+        <div
+          id="virtual-preference-section"
+          class="hidden mt-5"
+        >
+
+          <label
+            for="virtual-preference"
+            class="block text-sm
+                   font-medium mb-2"
+          >
+            Indicá días y horarios de preferencia
+          </label>
+
+          <textarea
+            id="virtual-preference"
+            rows="2"
+            placeholder="Ej. lunes por la mañana o martes después de las 15"
+            class="w-full px-4 py-3.5
+                   rounded-xl
+                   border border-gray-200
+                   bg-white text-sm
+                   resize-y transition
+                   focus:border-sage-400
+                   focus:ring-4
+                   focus:ring-sage-100"
+          ></textarea>
+
+        </div>
+
       </div>
 
 
@@ -1566,6 +1595,9 @@
         .classList.add("hidden");
 
 
+      document
+        .getElementById("virtual-preference-section")
+        .classList.remove("hidden");
       document
         .getElementById("virtual-schedule-info")
         .classList.remove("hidden");
@@ -2322,6 +2354,13 @@
         document.getElementById(
           "disponibilidad"
         );
+
+
+      const preferenciaVirtual =
+        document
+          .getElementById("virtual-preference")
+          .value
+          .trim();
 
 
       const disponibilidad =
