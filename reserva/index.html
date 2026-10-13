@@ -1657,6 +1657,11 @@
 
 
       document
+        .getElementById("virtual-preference-section")
+        .classList.add("hidden");
+
+
+      document
         .getElementById("presencial-info")
         .classList.remove("hidden");
 
@@ -2491,7 +2496,12 @@
         "A coordinar";
 
 
-      if (
+      if (modality === "virtual") {
+
+        disponibilidadMensaje =
+          preferenciaVirtual || "A coordinar";
+
+      } else if (
         modality === "presencial"
       ) {
 
@@ -2521,7 +2531,9 @@ ${modality === "virtual"
 *Tipo de consulta:*
 ${tipoConsulta}
 
-*Día y horario elegido:*
+*${modality === "virtual"
+  ? "Preferencia de días y horarios"
+  : "Día y horario elegido"}:*
 ${disponibilidadMensaje}
 
 *DATOS DEL PACIENTE*
