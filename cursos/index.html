@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Odontología integrativa | Programa del curso</title>
+  <meta name="description" content="Programa del curso de Odontología integrativa: una visión sistémica más allá de la boca.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configuración de colores -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            medical: {
+              50:  '#f9f7f4',
+              100: '#f1ebe4',
+              200: '#e6ddd3',
+              300: '#d8c8b7',
+              400: '#a8b8ae',
+              500: '#7d9a8c',
+              600: '#64806f',
+              700: '#526b5d',
+              800: '#3e3734',
+              900: '#2b2623',
+            },
+            teal: {
+              50:  '#fbf3ee',
+              100: '#f0dcd0',
+              200: '#e8cbbb',
+              300: '#dcb59d',
+              400: '#d2a184',
+              500: '#c98a6e',
+              600: '#b77960',
+              700: '#9c624e',
+            },
+            slate: {
+              50:  '#f9f7f4',
+              100: '#f1ebe4',
+              200: '#e6ddd3',
+              300: '#d7cec4',
+              400: '#a69d96',
+              500: '#5e5651',
+              600: '#5e5651',
+              700: '#3e3734',
+              800: '#2b2623',
+              900: '#2b2623',
+            }
+          },
+          boxShadow: {
+            'glow': '0 0 40px -10px rgba(125, 154, 140, 0.25)',
+            'card': '0 20px 50px -15px rgba(0, 0, 0, 0.08)',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.4s ease-out',
+            'slide-up': 'slideUp 0.4s ease-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': {
+                opacity: '0',
+                transform: 'translateY(12px)'
+              },
+              '100%': {
+                opacity: '1',
+                transform: 'translateY(0)'
+              },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tipografías y estilos -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Marcellus&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Marcellus', Georgia, serif;
+    }
+
+    h2, h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    main > div:first-child h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary {
+      transition: background-color 0.2s ease;
+    }
+
+    details[open] > summary {
+      background: linear-gradient(90deg, #f9f7f4, #ffffff);
+    }
+
+    details[open] > summary > span:first-child {
+      background: #64806f;
+      color: #ffffff;
+      box-shadow: 0 8px 18px -8px rgba(100, 128, 111, 0.65);
+    }
+
+    details[open] .chevron {
+      transform: rotate(180deg);
+    }
+
+    details summary:focus-visible {
+      outline: 2px solid #64806f;
+      outline-offset: -3px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-medical-100/90 backdrop-blur-xl">
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <a href="#" class="flex items-center gap-3" aria-label="Odontobio, inicio">
+        <img
+          src="../img/logo.png"
+          alt="Odontobio"
+          class="h-11 w-auto max-w-[220px] object-contain mix-blend-multiply"
+        >
+      </a>
+
+      <a
+        href="https://wa.me/549223662804?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20Odontolog%C3%ADa%20Integrativa."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-[#187A42] px-3 py-2 text-white shadow-sm transition hover:bg-[#125F33] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128C7E] sm:px-4"
+        aria-label="Quiero inscribirme por WhatsApp"
+      >
+        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.52 3.48A11.83 11.83 0 0 0 2.43 17.76L1 23l5.37-1.41A11.83 11.83 0 0 0 20.52 3.48ZM12 21.1a9.1 9.1 0 0 1-4.64-1.27l-.33-.2-3.19.84.85-3.11-.22-.35A9.1 9.1 0 1 1 12 21.1Zm5-6.82c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.12 2.8c.14.18 1.92 2.94 4.65 4.12.65.28 1.15.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+        </svg>
+        <span class="flex flex-col items-start leading-tight">
+          <span class="text-xs font-semibold">Quiero inscribirme</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
+
+    <!-- INTRODUCCIÓN -->
+    <section class="relative isolate mb-10 overflow-hidden rounded-3xl border border-medical-200/80 bg-gradient-to-br from-white via-medical-50 to-teal-50 px-6 py-8 shadow-sm animate-fade-in sm:px-10 sm:py-11">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-teal-100/70 blur-3xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -bottom-28 right-1/3 h-56 w-56 rounded-full bg-medical-200/50 blur-3xl"></div>
+
+      <div class="relative">
+
+        <h1 class="max-w-5xl text-4xl leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          Odontología integrativa
+          <span class="mt-1 block bg-gradient-to-r from-medical-600 to-teal-500 bg-clip-text text-transparent">
+            una visión sistémica más allá de la boca
+          </span>
+        </h1>
+
+        <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          Un recorrido desde los fundamentos y el pensamiento crítico hasta los mecanismos biológicos,
+          las relaciones entre la boca y el organismo, y su aplicación en la práctica clínica.
+        </p>
+      </div>
+    </section>
+
+    <!-- FUNDAMENTOS -->
+    <section class="mb-10 rounded-3xl border border-medical-200/80 bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="foundations-title">
+      <div class="flex items-start gap-4">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-medical-100 text-medical-700">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3.5c-2.2 0-3.6 1.7-3.6 4.1 0 1.7.7 3.1 1.2 4.2.5 1.1.8 2.2 1 4.1.1 1.5.7 2.6 1.4 2.6s1.3-1.1 1.4-2.6c.2-1.9.5-3 1-4.1.5-1.1 1.2-2.5 1.2-4.2 0-2.4-1.4-4.1-3.6-4.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.8 8.3c.4.4.8.6 1.4.7m5-1.2c-.4.4-.8.6-1.4.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div>
+          <h2 id="foundations-title" class="mt-1 text-2xl text-slate-900 sm:text-3xl">Fundamentos</h2>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+        <p>
+          Los avances en la integración biológica con las ciencias biomédicas han ampliado la comprensión de la relación entre la salud oral y el resto del organismo. La cavidad oral constituye un ecosistema dinámico, influenciado por factores locales, sistémicos, ambientales y propios de cada individuo.
+        </p>
+        <p>
+          En este contexto, la odontología integrativa propone ampliar la mirada clínica, incorporando conocimientos y fundamentos biológicos relacionados con el funcionamiento de nuestro organismo en su totalidad. La boca no está separada del resto del cuerpo.
+        </p>
+        <p>
+          Esta formación busca integrar estos conocimientos a la práctica odontológica, promoviendo el pensamiento crítico, la interpretación de la evidencia científica y una atención personalizada, preventiva y fundamentada en la biomedicina.
+        </p>
+      </div>
+    </section>
+
+    <!-- INFORMACIÓN DEL CURSO -->
+    <section class="relative isolate mb-10 overflow-hidden rounded-3xl border border-medical-200/80 bg-white shadow-card" aria-labelledby="course-info-title">
+      <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-teal-100/70 blur-3xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -bottom-28 left-1/4 h-56 w-56 rounded-full bg-medical-200/50 blur-3xl"></div>
+
+      <div class="relative grid lg:grid-cols-[1.2fr_0.8fr]">
+        <div class="p-6 sm:p-8 lg:p-10">
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-medical-200 bg-medical-50/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-medical-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h3m-3 3h3m3-3h2m-2 3h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Información del curso
+          </div>
+          <h2 id="course-info-title" class="text-2xl text-slate-900 sm:text-3xl">Tu cursada, en detalle</h2>
+          <p class="mt-2 max-w-xl text-sm leading-relaxed text-slate-600">
+            Una formación en vivo para llevar la mirada integrativa a tu práctica clínica.
+          </p>
+
+          <dl class="mt-7 grid gap-3 sm:grid-cols-2">
+            <div class="flex items-start gap-3 rounded-2xl border border-medical-100 bg-medical-50/70 p-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-medical-600 shadow-sm">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h3m-3 3h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-medical-600">Fecha de inicio</dt>
+                <dd class="mt-1 text-sm font-medium text-slate-800">Jueves 18/02/2027</dd>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-medical-100 bg-medical-50/70 p-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-medical-600 shadow-sm">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-medical-600">Horario</dt>
+                <dd class="mt-1 text-sm font-medium text-slate-800">19 a 21 hs</dd>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-medical-100 bg-medical-50/70 p-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-medical-600 shadow-sm">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-medical-600">Duración</dt>
+                <dd class="mt-1 text-sm font-medium text-slate-800">7 clases de 2 hs cada una</dd>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 rounded-2xl border border-medical-100 bg-medical-50/70 p-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-medical-600 shadow-sm">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="5" width="13" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="m16 10 5-3v10l-5-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-wide text-medical-600">Modalidad</dt>
+                <dd class="mt-1 text-sm font-medium leading-relaxed text-slate-800">100% virtual en vivo y con clases grabadas</dd>
+              </div>
+            </div>
+          </dl>
+
+          <a
+            href="https://wa.me/549223662804?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20Odontolog%C3%ADa%20Integrativa."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#187A42] px-5 py-3.5 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#125F33] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128C7E] sm:w-auto"
+            aria-label="Quiero inscribirme por WhatsApp"
+          >
+            <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.52 3.48A11.83 11.83 0 0 0 2.43 17.76L1 23l5.37-1.41A11.83 11.83 0 0 0 20.52 3.48ZM12 21.1a9.1 9.1 0 0 1-4.64-1.27l-.33-.2-3.19.84.85-3.11-.22-.35A9.1 9.1 0 1 1 12 21.1Zm5-6.82c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26s.98 2.62 1.12 2.8c.14.18 1.92 2.94 4.65 4.12.65.28 1.15.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+            </svg>
+            <span>Quiero inscribirme</span>
+          </a>
+        </div>
+
+        <div class="relative border-t border-medical-200/80 bg-gradient-to-br from-medical-50 via-white to-teal-50 p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-medical-700">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M3 10h18m-13 5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Precio y formas de pago
+          </div>
+
+          <div class="mt-4 rounded-2xl border border-medical-200/80 bg-white/90 p-5 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Precio del curso</p>
+            <p class="mt-1 text-3xl font-semibold tracking-tight text-slate-900">$627.374,40</p>
+            <p class="mt-1 text-sm text-slate-600">Hasta 3 cuotas sin interés</p>
+          </div>
+
+          <div class="mt-3 rounded-2xl bg-medical-700 p-5 text-white shadow-lg shadow-medical-700/20">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-medical-100">20% de descuento por transferencia</p>
+            <p class="mt-1 text-3xl font-semibold tracking-tight">$500.000</p>
+          </div>
+
+          <div class="mt-3 rounded-2xl border border-teal-300/80 bg-teal-50 p-5">
+            <div class="flex items-center justify-between gap-3">
+              <p class="text-xs font-semibold uppercase tracking-[0.12em] text-teal-700">Beneficio de lanzamiento</p>
+              <span class="shrink-0 rounded-full bg-teal-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white">10 primeros inscriptos</span>
+            </div>
+            <p class="mt-2 text-sm leading-relaxed text-slate-700">30% de descuento abonando únicamente por transferencia</p>
+            <p class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">$450.000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMARIO -->
+    <section id="contenido" class="animate-slide-up">
+      <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-medical-600">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5c0-.6.4-1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M8 7h8M8 10h8m-8 3h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Plan de estudios
+          </p>
+          <h2 class="mt-1 text-2xl text-slate-900 sm:text-3xl">Contenido del curso</h2>
+        </div>
+        <p class="text-sm text-slate-500">7 módulos · 37 bloques</p>
+      </div>
+
+      <div class="space-y-3">
+
+        <!-- MÓDULO 1 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">01</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 1</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 18/02 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Odontología integrativa con base científica</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>Cambiar la mirada: de la odontología tradicional al enfoque sistémico integrativo</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>Definir el enfoque integrativo con base y evidencia científica</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 sm:col-span-2"><span class="mr-2 font-semibold text-medical-600">III.</span>Pensamiento crítico y pseudociencias: ¿qué define una odontología integrativa científicamente sólida?</li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 2 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">02</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 2</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 25/02 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Microbiota oral, biofilm, inmunidad e inflamación</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>La microbiota oral y la cavidad bucal como ecosistema</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>El biofilm oral como forma de vida microbiana</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>Homeostasis (eubiosis), disbiosis y selección ecológica</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>Inmunidad oral e inflamación: en salud, caries y periodontitis</li>
+              <li class="rounded-xl bg-medical-50 px-4 py-3 text-sm text-medical-800 sm:col-span-2">
+                <span class="mr-2 font-semibold text-medical-600">V.</span>De los mecanismos biológicos al razonamiento clínico
+                <span class="mt-1 block pl-6 text-xs text-slate-600">Comprender el ecosistema bucal para tomar mejores decisiones</span>
+              </li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 3 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">03</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 3</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 04/03 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">La boca y el organismo: ejes de comunicación</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>¿Cómo se comunica la boca con el resto del organismo?</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>El eje boca–intestino</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>El eje boca–sistema metabólico</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>El eje boca–sistema cardiovascular</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">V.</span>Boca, cerebro y sistema respiratorio</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">VI.</span>Interpretar los ejes sin caer en simplificaciones</li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 4 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">04</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 4</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 11/03 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Hábitos y estilo de vida: el entorno del ecosistema oral</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>Hábitos, estilo de vida y enfermedad: una relación compleja</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>Alimentación, nutrición microbiana y salud oral</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>Estrés, sistema nervioso y salud oral</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>Sueño, respiración y función</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 sm:col-span-2"><span class="mr-2 font-semibold text-medical-600">V.</span>Del conocimiento a la intervención</li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 5 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">05</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 5</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 18/03 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Genética, epigenética y susceptibilidad individual</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>¿Por qué dos personas responden diferente?</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>Genética y salud oral</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>Epigenética: cómo el ambiente regula la expresión génica</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>Ambiente, inflamación y epigenética</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700 sm:col-span-2"><span class="mr-2 font-semibold text-medical-600">V.</span>Hacia una odontología de precisión</li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 6 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">06</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 6</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 25/03 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Enfermedades sistémicas y salud oral</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>La enfermedad sistémica modifica el contexto odontológico: implicancias para el diagnóstico y el tratamiento</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>Diabetes, condiciones metabólicas y salud periodontal</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>Enfermedad cardiovascular y salud oral</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>Alteraciones inmunitarias, inflamatorias, neurodegenerativas y otros trastornos sistémicos</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">V.</span>Medicación, tratamientos médicos y cavidad oral</li>
+              <li class="rounded-xl bg-medical-50 px-4 py-3 text-sm text-medical-800"><span class="mr-2 font-semibold text-medical-600">VI.</span>El trabajo interdisciplinario: límites del rol odontológico</li>
+            </ol>
+          </div>
+        </details>
+
+        <!-- MÓDULO 7 -->
+        <details class="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-medical-300 hover:shadow-card">
+          <summary class="flex cursor-pointer list-none items-center gap-4 px-4 py-4 sm:px-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-medical-100 text-sm font-semibold text-medical-700">07</span>
+            <span class="min-w-0 flex-1">
+              <span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                <span class="font-semibold uppercase tracking-[0.15em] text-medical-600">Módulo 7</span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-slate-500">
+                  <svg class="h-3.5 w-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="2.5" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                  Jueves 01/04 · 19 a 21 hs
+                </span>
+              </span>
+              <span class="mt-0.5 block text-base font-medium text-slate-900 sm:text-lg">Salud oral a lo largo de la vida</span>
+            </span>
+            <svg class="chevron h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="border-t border-slate-100 px-4 py-4 sm:px-6">
+            <ol class="grid gap-2 sm:grid-cols-2">
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">I.</span>Una mirada de curso de vida</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">II.</span>Infancia y desarrollo</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">III.</span>Adolescencia y adultez</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">IV.</span>Embarazo: una etapa de cambios biológicos</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">V.</span>Envejecimiento y salud oral</li>
+              <li class="rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-700"><span class="mr-2 font-semibold text-medical-600">VI.</span>Integrar a lo largo de la vida</li>
+            </ol>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="mt-8 grid gap-8 rounded-3xl bg-gradient-to-br from-medical-700 to-medical-800 px-6 py-7 text-white shadow-lg shadow-medical-800/15 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:px-10 lg:py-9">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-medical-100">Una mirada clínica integrativa</p>
+        <p class="mt-2 max-w-3xl text-lg leading-relaxed text-white/90">
+          Comprender la salud oral en su contexto permite formular mejores preguntas, interpretar la evidencia con criterio y tomar decisiones clínicas más informadas.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 border-t border-white/20 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <img
+          src="../img/hero.webp"
+          alt="Dra. Verónica Dubois"
+          class="h-24 w-24 shrink-0 rounded-full border-4 border-white/30 object-cover shadow-lg"
+        >
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-medical-100">Docente del curso</p>
+          <h3 class="mt-1 text-lg text-white">Dra. Verónica Dubois</h3>
+          <a
+            href="https://odontobio.vercel.app/#sobre"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 inline-flex items-center gap-2 rounded-full bg-[#C98A6E] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#B77960] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Conocé más
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 4h6v6m-1-5-9 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-12 border-t border-slate-200/70">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
+      <img
+        src="../img/logo.png"
+        alt="Odontobio"
+        class="h-11 w-auto max-w-[220px] object-contain mix-blend-multiply"
+      >
+      <p class="text-center text-sm text-slate-400">
+        © 2026 · Odontobio - Odontología Científica. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
